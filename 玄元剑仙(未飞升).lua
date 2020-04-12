@@ -359,9 +359,9 @@ while total > 0 do
             usleep(100000);
             responsiveTap(612, 610);
             usleep(100000);
-            responsiveTap(612, 610);
-            usleep(100000);
             responsiveTap(605, 805);
+            usleep(100000);
+            responsiveTap(612, 610);
             usleep(100000);
             responsiveTap(605, 805);
             usleep(10000000);
