@@ -348,16 +348,22 @@ while total > 0 do
             responsiveGetColor(528, 148) == 9523242 and responsiveGetColor(136, 237) == 765169) then
         toast('检测到洞府界面', 1);
         usleep(1000000);
-        if (responsiveGetColor(424, 589) == 5917496 and responsiveGetColor(373, 592) == 8879212 and 
-            responsiveGetColor(256, 584) == 6773062 and responsiveGetColor(358, 593) == 14868175 and responsiveGetColor(356, 593) == 6773062 
+        if (responsiveGetColor(424, 589) == 5917496 and responsiveGetColor(373, 592) == 8879212 
+             and responsiveGetColor(358, 593) == 14868175 and responsiveGetColor(356, 593) == 6773062 
                 and responsiveGetColor(425, 589) == 5917497) then
             toast('洞府点击升级', 1);
             usleep(1000000);
             responsiveTap(609, 421);
             usleep(100000);
+            responsiveTap(490, 807);
+            usleep(100000);
             responsiveTap(612, 610);
             usleep(100000);
-            responsiveTap(605, 805);
+            responsiveTap(490, 805);
+            usleep(100000);
+            responsiveTap(605, 807);
+            usleep(100000);
+            responsiveTap(490, 807);
             usleep(10000000);
         else
             toast('木头未满级', 1);
