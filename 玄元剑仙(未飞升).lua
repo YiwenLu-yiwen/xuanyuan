@@ -141,7 +141,7 @@ while total > 0 do
 
 
     --神游设置
-    if (responsiveGetColor(500, 1029) == 3168101 and responsiveGetColor(531, 1060) == 16774114 and 
+    if (responsiveGetColor(500, 1029) == 5008757 and responsiveGetColor(531, 1060) == 16774114 and 
             responsiveGetColor(611, 1043) == 16776695 and responsiveGetColor(492, 1001) == 14137237) then
         toast('检测神游', 1);
         usleep(1000000);
