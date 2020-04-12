@@ -385,10 +385,10 @@ while total > 0 do
     usleep(180000000);
 end
 
-if (responsiveGetColor(, ) ==  and responsiveGetColor(, ) ==  and 
-        responsiveGetColor(,) ==  and responsiveGetColor(, ) == ) then
-    toast('', 1);
-    usleep(1000000);
-    responsiveTap(, );
-    usleep(10000000);
-end
+--if (responsiveGetColor(, ) ==  and responsiveGetColor(, ) ==  and 
+--       responsiveGetColor(,) ==  and responsiveGetColor(, ) == ) then
+--    toast('', 1);
+--   usleep(1000000);
+--   responsiveTap(, );
+--   usleep(10000000);
+--end
