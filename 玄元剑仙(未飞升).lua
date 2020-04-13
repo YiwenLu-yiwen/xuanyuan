@@ -6,7 +6,7 @@ local update_gf4 = {type=CONTROLLER_TYPE.SWITCH, title="升级秘籍", key="秘�
 local update_gf5 = {type=CONTROLLER_TYPE.SWITCH, title="升级心经", key="心经", value=1}
 local update_gf6 = {type=CONTROLLER_TYPE.SWITCH, title="升级遁术", key="遁术", value=1}
 local update_gf7 = {type=CONTROLLER_TYPE.SWITCH, title="升级残页", key="残页", value=1}
-local iteration = {type=CONTROLLER_TYPE.INPUT, title="循环多少次升级灵根（只能数字）", key="循环", value=15}
+local iteration = {type=CONTROLLER_TYPE.INPUT, title="间隔多久升级功法（只能数字）", key="升级", value=45}
 --It's an option for users to determine weather the inputs should be remembered, if you use this control in the dialog.
 local remember = {type=CONTROLLER_TYPE.REMEMBER, on=false}
 local btn1 = {type=CONTROLLER_TYPE.BUTTON, title="开始", color=0x71C69E, width=0.8, flag=1, collectInputs=true}
@@ -268,7 +268,7 @@ while total > 0 do
     usleep(1000000);
 
     --功法
-    if (total%tonumber(iteration.value) == 0) then
+    if (total%(tonumber(iteration.value)/3) == 0) then
         if (responsiveGetColor(78, 1031) == 5462102 and responsiveGetColor(117, 1032) == 14928548 and 
             responsiveGetColor(96, 1015) == 6518652 and responsiveGetColor(92, 1056) == 5930111) then
             toast('进入功法', 1);
