@@ -6,7 +6,7 @@ local update_gf4 = {type=CONTROLLER_TYPE.SWITCH, title="升级秘籍", key="秘�
 local update_gf5 = {type=CONTROLLER_TYPE.SWITCH, title="升级心经", key="心经", value=1}
 local update_gf6 = {type=CONTROLLER_TYPE.SWITCH, title="升级遁术", key="遁术", value=1}
 local update_gf7 = {type=CONTROLLER_TYPE.SWITCH, title="升级残页", key="残页", value=1}
-local iteration = {type=CONTROLLER_TYPE.INPUT, title="间隔多久升级功法（只能数字）", key="升级", value=45}
+local iteration = {type=CONTROLLER_TYPE.INPUT, title="间隔多久升级功法（只能数字）", key="升级", value=14}
 --It's an option for users to determine weather the inputs should be remembered, if you use this control in the dialog.
 local remember = {type=CONTROLLER_TYPE.REMEMBER, on=false}
 local btn1 = {type=CONTROLLER_TYPE.BUTTON, title="开始", color=0x71C69E, width=0.8, flag=1, collectInputs=true}
@@ -179,8 +179,8 @@ while total > 0 do
 
     usleep(1000000);
 
-    if (responsiveGetColor(235, 1022) == 15589044 and responsiveGetColor(255, 1044) == 10457745 and 
-            responsiveGetColor(236, 1075) == 5190194 and responsiveGetColor(217, 1043) == 8879228) then
+    if (responsiveGetColor(500, 1029) == 5008757 and responsiveGetColor(531, 1060) == 16774114 and 
+            responsiveGetColor(611, 1043) == 16776695 and responsiveGetColor(492, 1001) == 14137237) then
         toast('退出神游界面', 1);
         usleep(1000000);
         responsiveTap(57, 33);
@@ -268,7 +268,7 @@ while total > 0 do
     usleep(1000000);
 
     --功法
-    if (total%(tonumber(iteration.value)/3) == 0) then
+    if (total%tonumber(iteration.value) == 0) then
         if (responsiveGetColor(78, 1031) == 5462102 and responsiveGetColor(117, 1032) == 14928548 and 
             responsiveGetColor(96, 1015) == 6518652 and responsiveGetColor(92, 1056) == 5930111) then
             toast('进入功法', 1);
@@ -381,7 +381,43 @@ while total > 0 do
         responsiveTap(30, 36);
         usleep(1000000);
     end
+
+    usleep(1000000);
     
+    --分享有礼
+    if (responsiveGetColor(78, 1031) == 5462102 and responsiveGetColor(117, 1032) == 14928548 and 
+            responsiveGetColor(96, 1015) == 6518652 and responsiveGetColor(92, 1056) == 5930111) then
+        toast('进入分享界面', 1);
+        usleep(1000000);
+        responsiveTap(624, 159);
+        usleep(10000000);
+    end
+
+    usleep(5000000);
+
+    --检测分享有礼
+    if (responsiveGetColor(248, 470) == 15778415 and responsiveGetColor(313, 482) == 11229249 and 
+      responsiveGetColor(378, 469) == 12354678 and responsiveGetColor(636, 461) == 15586948) then
+        toast('检测分享界面', 1);
+        usleep(1000000);
+        if (responsiveGetColor(418, 575) == 13132901 and responsiveGetColor(444, 572) == 14336182 and 
+      responsiveGetColor(455, 575) == 14001566 and responsiveGetColor(475, 571) == 13132131) then
+        toast('开始分享', 1);
+        usleep(1000000);
+        responsiveTap(375, 816);
+        usleep(500000);
+        responsiveTap(374, 39);
+        usleep(500000);
+        responsiveTap(375, 816);
+        usleep(1000000);
+        else
+            toast('分享时间未到');
+            usleep(1000000);
+            responsiveTap(423, 386);
+            usleep(1000000);
+        end
+    end
+
     usleep(180000000);
 end
 
