@@ -1,5 +1,5 @@
 # 玄元剑仙 Lua 脚本
-本脚本根据iphone6s，autotouch 找色方法 基础编写，理论上全平台适配
+本脚本根据iphone6s，autotouch 找色方法 基础编写
 
 仅测试ios qq服，其他需自行测试
 
