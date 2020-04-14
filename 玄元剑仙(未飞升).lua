@@ -416,7 +416,7 @@ while total > 0 do
 
         --悟道设置
         if (responsiveGetColor(375, 896) == 15379022 and responsiveGetColor(409, 908) == 14453035 and 
-        esponsiveGetColor(358, 894) == 6501916) then
+        responsiveGetColor(358, 894) == 6501916) then
             toast('开始悟道', 1);
             usleep(1000000);
             responsiveTap(373, 895);
