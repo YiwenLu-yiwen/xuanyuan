@@ -511,15 +511,21 @@ while total > 0 do
         toast('检测分享界面', 1);
         usleep(1000000);
         if (responsiveGetColor(418, 575) == 13132901 and responsiveGetColor(444, 572) == 14336182 and 
-      responsiveGetColor(455, 575) == 14001566 and responsiveGetColor(475, 571) == 13132131) then
-        toast('开始分享', 1);
-        usleep(1000000);
-        responsiveTap(375, 816);
-        usleep(500000);
-        responsiveTap(374, 39);
-        usleep(500000);
-        responsiveTap(375, 816);
-        usleep(1000000);
+            responsiveGetColor(455, 575) == 14001566 and responsiveGetColor(475, 571) == 13132131) then
+            toast('开始分享', 1);
+            usleep(1000000);
+            responsiveTap(375, 816);
+            usleep(100000);
+            responsiveTap(338, 475);
+            usleep(100000);
+            responsiveTap(338, 475);
+            usleep(100000);
+            responsiveTap(338, 475);
+            usleep(100000);
+            responsiveTap(338, 475);
+            usleep(100000);
+            responsiveTap(375, 816);
+            usleep(1000000);
         else
             toast('分享时间未到');
             usleep(1000000);
