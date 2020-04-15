@@ -1,6 +1,8 @@
 local label = {type=CONTROLLER_TYPE.LABEL, text="玄元剑仙-zz脚本"}
+local platf ={type=CONTROLLER_TYPE.PICKER, title="平台选择(QQ需提前进入游戏)", key="platf", value="QQ", options={"QQ", "其他"} }
 local book_row = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几行", key="row", value="2"}
 local book_col = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几列", key="column", value="1"}
+local update_gf9 = {type=CONTROLLER_TYPE.SWITCH, title="自动熄屏", key="息屏", value=1}
 local update_gf8 = {type=CONTROLLER_TYPE.SWITCH, title="自动悟道", key="悟道", value=1}
 local update_gf1 = {type=CONTROLLER_TYPE.SWITCH, title="升级绝学", key="绝学", value=1}
 local update_gf2 = {type=CONTROLLER_TYPE.SWITCH, title="升级真绝", key="真绝", value=1}
@@ -9,12 +11,12 @@ local update_gf4 = {type=CONTROLLER_TYPE.SWITCH, title="升级秘籍", key="秘�
 local update_gf5 = {type=CONTROLLER_TYPE.SWITCH, title="升级心经", key="心经", value=1}
 local update_gf6 = {type=CONTROLLER_TYPE.SWITCH, title="升级遁术", key="遁术", value=1}
 local update_gf7 = {type=CONTROLLER_TYPE.SWITCH, title="升级残页", key="残页", value=1}
-local iteration = {type=CONTROLLER_TYPE.INPUT, title="间隔多久升级功法（只能数字）", key="升级", value=14}
+local iteration = {type=CONTROLLER_TYPE.INPUT, title="间隔多久升级功法（只能数字）", key="升级", value=3}
 --It's an option for users to determine weather the inputs should be remembered, if you use this control in the dialog.
 local remember = {type=CONTROLLER_TYPE.REMEMBER, on=false}
 local btn1 = {type=CONTROLLER_TYPE.BUTTON, title="开始", color=0x71C69E, width=0.8, flag=1, collectInputs=true}
-local controls = {label, book_row, book_col, update_gf8, update_gf1, update_gf2, update_gf3, update_gf4, 
-    update_gf5, update_gf6, update_gf7, iteration, btn1, remember}
+local controls = {label, platf, book_row, book_col, update_gf8, update_gf1, update_gf2, update_gf3, update_gf4, 
+    update_gf5, update_gf6, update_gf7, update_gf9, iteration, remember, btn1}
 local orientations = { ORIENTATION_TYPE.LANDSCAPE_LEFT, ORIENTATION_TYPE.LANDSCAPE_RIGHT };
 local result = dialog(controls, orientations);
     
@@ -67,11 +69,33 @@ function check_gf(x, y, times)
         cnt = cnt + 1
     end
 end
+function keyPress(keyType)
+    keyDown(keyType);
+    usleep(10000);
+    keyUp(keyType);
+end
+function lockScreen()
+    keyDown(KEY_TYPE.POWER_BUTTON);
+    keyUp(KEY_TYPE.POWER_BUTTON);
+end
+function check_notice()
+    if (responsiveGetColor(655, 227) == 13127218 and responsiveGetColor(432, 240) == 16644084 and 
+        responsiveGetColor(375,350) == 2894892 and responsiveGetColor(380, 457) == 12367017) then
+        toast('关闭公告', 1);
+        usleep(1000000);
+        responsiveTap(655, 229);
+        usleep(5000000);
+    end
+end
 
-local total =1;
-while total > 0 do
+local total = -1;
+while total >= -1 do
     total = total + 1
-    --appActivate("com.tencent.mqq"); 强制切换程序
+    if (platf.value == 'QQ') then
+        appActivate("com.tencent.mqq"); --强制切换程序
+        usleep(100000);
+    end
+
     usleep(10000000);
 
     --login
@@ -161,12 +185,9 @@ while total > 0 do
             responsiveGetColor(374, 1067) == 14453035 and responsiveGetColor(577, 984) == 9128487) then
             toast('开始设置神游', 1);
             usleep(100000);
-            local rep = 0;
-            while (rep < 70) do
-                responsiveTap(500, 984);
-                usleep(100000);
-                rep = rep + 1
-            end
+            responsiveTap(558, 979);
+            usleep(100000);
+            responsiveTap(558, 979);
             usleep(1000000);
             responsiveTap(382, 1046);
             usleep(1000000);
@@ -199,6 +220,10 @@ while total > 0 do
         responsiveTap(37, 32);
         usleep(2000000);
     end
+
+    usleep(1000000);
+
+    check_notice();
 
     usleep(1000000);
 
@@ -505,7 +530,7 @@ while total > 0 do
         usleep(10000000);
     end
 
-    usleep(5000000);
+    usleep(3000000);
 
     --检测分享有礼
     if (responsiveGetColor(248, 470) == 15778415 and responsiveGetColor(313, 482) == 11229249 and 
@@ -535,8 +560,27 @@ while total > 0 do
             usleep(1000000);
         end
     end
-
-    usleep(180000000);
+    usleep(1000000);
+    if (update_gf9.value == 1) then
+        lockScreen();
+        local slep = 1;
+        while slep < 300 do
+            slep = slep + 1;
+            usleep(300000000);
+        end
+        keyPress(KEY_TYPE.HOME_BUTTON);
+        usleep(500000);
+        keyPress(KEY_TYPE.HOME_BUTTON);
+        usleep(500000);
+        keyPress(KEY_TYPE.HOME_BUTTON);
+        usleep(1000000);
+        if (platf.value == 'QQ') then
+            appActivate("com.tencent.mqq"); --强制切换程序
+            usleep(100000);
+        end
+        usleep(20000000);
+    else
+        usleep(900000000);
 end
 
 --if (responsiveGetColor(, ) ==  and responsiveGetColor(, ) ==  and 
