@@ -1,4 +1,4 @@
-ocal label = {type=CONTROLLER_TYPE.LABEL, text="找色脚本"}
+local label = {type=CONTROLLER_TYPE.LABEL, text="找色脚本"}
 local x = {type=CONTROLLER_TYPE.INPUT, title="横轴x", key="book_row", value=2}
 local y = {type=CONTROLLER_TYPE.INPUT, title="纵轴y", key="book_col", value=1}
 --It's an option for users to determine weather the inputs should be remembered, if you use this control in the dialog.

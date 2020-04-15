@@ -2,7 +2,6 @@ local label = {type=CONTROLLER_TYPE.LABEL, text="玄元剑仙-zz脚本"}
 local platf ={type=CONTROLLER_TYPE.PICKER, title="平台选择(QQ需提前进入游戏)", key="platf", value="QQ", options={"QQ", "其他"} }
 local book_row = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几行", key="row", value="2"}
 local book_col = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几列", key="column", value="1"}
-local update_gf9 = {type=CONTROLLER_TYPE.SWITCH, title="自动熄屏", key="息屏", value=1}
 local update_gf8 = {type=CONTROLLER_TYPE.SWITCH, title="自动悟道", key="悟道", value=1}
 local update_gf1 = {type=CONTROLLER_TYPE.SWITCH, title="升级绝学", key="绝学", value=1}
 local update_gf2 = {type=CONTROLLER_TYPE.SWITCH, title="升级真绝", key="真绝", value=1}
@@ -11,12 +10,11 @@ local update_gf4 = {type=CONTROLLER_TYPE.SWITCH, title="升级秘籍", key="秘�
 local update_gf5 = {type=CONTROLLER_TYPE.SWITCH, title="升级心经", key="心经", value=1}
 local update_gf6 = {type=CONTROLLER_TYPE.SWITCH, title="升级遁术", key="遁术", value=1}
 local update_gf7 = {type=CONTROLLER_TYPE.SWITCH, title="升级残页", key="残页", value=1}
-local iteration = {type=CONTROLLER_TYPE.INPUT, title="间隔多久升级功法（只能数字）", key="升级", value=3}
 --It's an option for users to determine weather the inputs should be remembered, if you use this control in the dialog.
 local remember = {type=CONTROLLER_TYPE.REMEMBER, on=false}
 local btn1 = {type=CONTROLLER_TYPE.BUTTON, title="开始", color=0x71C69E, width=0.8, flag=1, collectInputs=true}
 local controls = {label, platf, book_row, book_col, update_gf8, update_gf1, update_gf2, update_gf3, update_gf4, 
-    update_gf5, update_gf6, update_gf7, update_gf9, iteration, remember, btn1}
+    update_gf5, update_gf6, update_gf7, remember, btn1}
 local orientations = { ORIENTATION_TYPE.LANDSCAPE_LEFT, ORIENTATION_TYPE.LANDSCAPE_RIGHT };
 local result = dialog(controls, orientations);
     
@@ -121,7 +119,7 @@ while total >= -1 do
         usleep(1000000);
         responsiveTap(373, 1132); --tap twice
         responsiveTap(373, 1132);
-        usleep(30000000);
+        usleep(20000000);
     end
 
     -- 已登陆
@@ -153,7 +151,7 @@ while total >= -1 do
         toast('进入历练', 1);
         usleep(1000000);
         responsiveTap(660, 1033);
-        usleep(10000000);
+        usleep(5000000);
     end
 
     usleep(1000000);
@@ -233,8 +231,9 @@ while total >= -1 do
         toast('进入灵根', 1);
         usleep(1000000);
         responsiveTap(95, 1030);
+        usleep(100000);
         responsiveTap(95, 1030);
-        usleep(10000000);
+        usleep(5000000);
     end
 
     usleep(1000000);
@@ -242,7 +241,7 @@ while total >= -1 do
     --灵根界面检测
     if (responsiveGetColor(199, 42) == 1979717 and responsiveGetColor(115, 40) == 1715515 and 
             responsiveGetColor(84, 27) == 1715515 and responsiveGetColor(57,42) == 1058351) then
-        toast('已经在界面了', 1);
+        toast('已在灵根界面', 1);
         usleep(1000000);
         responsiveTap(375, 278);
         usleep(100000);
@@ -296,7 +295,7 @@ while total >= -1 do
     usleep(1000000);
 
     --功法
-    if (total%tonumber(iteration.value) == 0) then
+    if (total%8 == 0) then
         if (responsiveGetColor(78, 1031) == 5462102 and responsiveGetColor(117, 1032) == 14928548 and 
             responsiveGetColor(96, 1015) == 6518652 and responsiveGetColor(92, 1056) == 5930111) then
             toast('进入功法', 1);
@@ -371,7 +370,7 @@ while total >= -1 do
         toast('进入洞府', 1);
         usleep(1000000);
         responsiveTap(516, 1029);
-        usleep(10000000);
+        usleep(5000000);
     end
     
     usleep(1000000);
@@ -527,7 +526,7 @@ while total >= -1 do
         toast('进入分享界面', 1);
         usleep(1000000);
         responsiveTap(624, 159);
-        usleep(10000000);
+        usleep(1000000);
     end
 
     usleep(3000000);
@@ -560,27 +559,8 @@ while total >= -1 do
             usleep(1000000);
         end
     end
-    usleep(1000000);
-    if (update_gf9.value == 1) then
-        lockScreen();
-        local slep = 1;
-        while slep < 300 do
-            slep = slep + 1;
-            usleep(300000000);
-        end
-        keyPress(KEY_TYPE.HOME_BUTTON);
-        usleep(500000);
-        keyPress(KEY_TYPE.HOME_BUTTON);
-        usleep(500000);
-        keyPress(KEY_TYPE.HOME_BUTTON);
-        usleep(1000000);
-        if (platf.value == 'QQ') then
-            appActivate("com.tencent.mqq"); --强制切换程序
-            usleep(100000);
-        end
-        usleep(20000000);
-    else
-        usleep(900000000);
+
+    usleep(300000000);
 end
 
 --if (responsiveGetColor(, ) ==  and responsiveGetColor(, ) ==  and 
