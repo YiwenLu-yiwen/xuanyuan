@@ -170,8 +170,8 @@ while total >= -1 do
 	responsiveTap(646, 1027);
 	usleep(3000000);
 	
-	while (responsiveGetColor(341,1107) == 5588531 and responsiveGetColor(413,1111) == 5917753 and 
-			responsiveGetColor(642, 194) == 13588026) do
+	while (responsiveGetColor(245,254) == 5983502 and responsiveGetColor(302,262) == 15651945 and 
+        responsiveGetColor(642, 194) == 13588026) do
 		toast("检测到圣兽界面",1);
 		usleep(1000000);
 		responsiveTap(373, 1119);
@@ -624,8 +624,9 @@ while total >= -1 do
     end
 
     usleep(1000000);
+
     -- 每隔16min
-    if (tonumber(update_gf9.value == 1)) then
+    if (tonumber(update_gf9.value) == 1) then
         lockScreen();
         sleep(300);
         unlockScreen();
