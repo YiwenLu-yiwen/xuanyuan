@@ -99,16 +99,23 @@ local total = -1;
 while total >= -1 do
     total = total + 1
     if (platf.value == 'QQ') then
+		openURL("https://h5.qzone.qq.com/app/open/1108228472/home?app_display=2&_happ=1&_proxy=1&_wv=145191&pf=wanba_ts.9&via=H5.SHARE.QQAIO");
+		usleep(2000000);
+		-- 点击浏览器open 跳转
+		while (responsiveGetColor(622, 742) ==31487) do
+			responsiveTap(622, 742);
+			usleep(1000000);
+		end
         appActivate("com.tencent.mqq"); --强制切换程序
         usleep(100000);
     end
 
-    usleep(10000000);
+    usleep(20000000);
 
     --login
     if (responsiveGetColor(424, 1010) == 15313229 and responsiveGetColor(617,303) == 13456441 and 
             responsiveGetColor(575,288)==15065814) then
-        toast('检测到登陆界面',1);
+        toast('检测到登陆界面公告',1);
         usleep(1000000);
         responsiveTap(617,303);
         usleep(1000000);
@@ -119,8 +126,21 @@ while total >= -1 do
         responsiveTap(369,936);
         usleep(100000);
     end
-
-    usleep(4000000);
+	
+	usleep(100000);
+	
+	while (responsiveGetColor(709, 37) == 16373867 and responsiveGetColor(697,78) == 16644836 and responsiveGetColor(303,1027) == 15662333) do
+        toast('检测到登陆界面,正在努力登陆',1);
+        usleep(100000);
+        responsiveTap(369,936); --tap 3 times
+        usleep(100000);
+        responsiveTap(369,936);
+        usleep(100000);
+        responsiveTap(369,936);
+        usleep(100000);
+	end
+	
+    usleep(1000000);
 
     if (responsiveGetColor(257, 1142) == 15977041 and responsiveGetColor(499, 1145) == 16505449 and 
             responsiveGetColor(371,1146) == 6758400) then
@@ -168,10 +188,10 @@ while total >= -1 do
 	toast("检测圣兽",1);
 	usleep(1000000);
 	responsiveTap(646, 1027);
-	usleep(3000000);
+	usleep(5000000);
 	
 	while (responsiveGetColor(245,254) == 5983502 and responsiveGetColor(302,262) == 15651945 and 
-        responsiveGetColor(642, 194) == 13588026) do
+			responsiveGetColor(642, 194) == 13588026) do
 		toast("检测到圣兽界面",1);
 		usleep(1000000);
 		responsiveTap(373, 1119);
@@ -324,7 +344,12 @@ while total >= -1 do
     usleep(1000000);
 	
     --功法
-    if (total%3 == 0) then
+	local gf_times = 5;
+	if (tonumber(update_gf9.value) == 1) then
+		gf_times = 7;
+	end
+	usleep(100000);
+    if (total%7 == gf_times) then
         if (responsiveGetColor(78, 1031) == 5462102 and responsiveGetColor(117, 1032) == 14928548 and 
             responsiveGetColor(96, 1015) == 6518652 and responsiveGetColor(92, 1056) == 5930111) then
             toast('进入功法', 1);
@@ -495,7 +520,7 @@ while total >= -1 do
         usleep(1000000);
         responsiveTap(81, 201);
         usleep(100000);
-        local row_times = tonumber(book_row.value) // 2 - 1;
+        local row_times = tonumber(book_row.value) - 2;
         local book_location1 = {{x=177, y=412}, {x=383, y=387}, {x=596, y=382}, {x=177, y=671}, {x=383, y=646}, {x=596, y=641}}; --选书坐标1 （正序列，1，2，3，4，5，6）
         local book_location2 = {{x=175, y=710}, {x=375, y=720}, {x=597, y=718}}; --选书坐标2（从第三排开始，1,2,3）
         while row_times > 0 do
@@ -624,26 +649,16 @@ while total >= -1 do
     end
 
     usleep(1000000);
-
+    
     -- 每隔16min
     if (tonumber(update_gf9.value) == 1) then
+		 log("lock");
         lockScreen();
         sleep(300);
+		 log("unlock");
         unlockScreen();
         usleep(500000);
-        if (platf.value == 'QQ') then
-            appActivate("com.tencent.mqq"); --强制切换程序
-            usleep(20000000);        
-        end
     else
         usleep(900000000);
     end
 end
-
---if (responsiveGetColor(, ) ==  and responsiveGetColor(, ) ==  and 
---       responsiveGetColor(,) ==  and responsiveGetColor(, ) == ) then
---    toast('', 1);
---   usleep(1000000);
---   responsiveTap(, );
---   usleep(10000000);
---end
