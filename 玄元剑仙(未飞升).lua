@@ -344,12 +344,12 @@ while total >= -1 do
     usleep(1000000);
 	
     --功法
-	local gf_times = 5;
-	if (tonumber(update_gf9.value) == 1) then
-		gf_times = 7;
-	end
+	local gf_times = 4;
+	--if (tonumber(update_gf9.value) == 1) then
+	--	gf_times = 7;
+	--end
 	usleep(100000);
-    if (total%7 == gf_times) then
+    if (total%gf_times == 1) then
         if (responsiveGetColor(78, 1031) == 5462102 and responsiveGetColor(117, 1032) == 14928548 and 
             responsiveGetColor(96, 1015) == 6518652 and responsiveGetColor(92, 1056) == 5930111) then
             toast('进入功法', 1);
@@ -649,7 +649,7 @@ while total >= -1 do
     end
 
     usleep(1000000);
-    
+
     -- 每隔16min
     if (tonumber(update_gf9.value) == 1) then
 		 log("lock");
