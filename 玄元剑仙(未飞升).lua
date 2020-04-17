@@ -498,7 +498,7 @@ while total >= -1 do
         local row_times = tonumber(book_row.value) // 2 - 1;
         local book_location1 = {{x=177, y=412}, {x=383, y=387}, {x=596, y=382}, {x=177, y=671}, {x=383, y=646}, {x=596, y=641}}; --选书坐标1 （正序列，1，2，3，4，5，6）
         local book_location2 = {{x=175, y=710}, {x=375, y=720}, {x=597, y=718}}; --选书坐标2（从第三排开始，1,2,3）
-        while row_times >= 0 do
+        while row_times > 0 do
             row_times = row_times -1;
             responsiveTouchMove(177, 763, 177, 583); 
             usleep(500000);
