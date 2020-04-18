@@ -90,6 +90,21 @@ function check_notice()
         usleep(5000000);
     end
 end
+function check_login()
+	if (responsiveGetColor(424, 1010) == 15313229 and responsiveGetColor(617,303) == 13456441 and 
+            responsiveGetColor(575,288)==15065814) then
+        toast('检测到登陆界面公告',1);
+        usleep(1000000);
+        responsiveTap(617,303);
+        usleep(1000000);
+        responsiveTap(369,936); --tap 3 times
+        usleep(100000);
+        responsiveTap(369,936);
+        usleep(100000);
+        responsiveTap(369,936);
+        usleep(100000);
+    end	
+end
 function sleep(n)  -- seconds
     local sec = os.time() + n;
     repeat until os.time()> sec
@@ -110,24 +125,12 @@ while total >= -1 do
         usleep(100000);
     end
 
-    usleep(20000000);
+    usleep(40000000);
 
     --login
-    if (responsiveGetColor(424, 1010) == 15313229 and responsiveGetColor(617,303) == 13456441 and 
-            responsiveGetColor(575,288)==15065814) then
-        toast('检测到登陆界面公告',1);
-        usleep(1000000);
-        responsiveTap(617,303);
-        usleep(1000000);
-        responsiveTap(369,936); --tap 3 times
-        usleep(100000);
-        responsiveTap(369,936);
-        usleep(100000);
-        responsiveTap(369,936);
-        usleep(100000);
-    end
+    check_login();
 	
-	usleep(100000);
+	usleep(1000000);
 	
 	while (responsiveGetColor(709, 37) == 16373867 and responsiveGetColor(697,78) == 16644836 and responsiveGetColor(303,1027) == 15662333) do
         toast('检测到登陆界面,正在努力登陆',1);
@@ -139,11 +142,12 @@ while total >= -1 do
         responsiveTap(369,936);
         usleep(100000);
 	end
-	
+	usleep(1000000);
+	check_login();
     usleep(1000000);
 
-    if (responsiveGetColor(257, 1142) == 15977041 and responsiveGetColor(499, 1145) == 16505449 and 
-            responsiveGetColor(371,1146) == 6758400) then
+    while (responsiveGetColor(257, 1142) == 15977041 and responsiveGetColor(499, 1145) == 16505449 and 
+            responsiveGetColor(371,1146) == 6758400) do
         toast('正在进入游戏', 1);
         usleep(1000000);
         responsiveTap(373, 1132); --tap twice
@@ -649,13 +653,14 @@ while total >= -1 do
     end
 
     usleep(1000000);
-
     -- 每隔16min
     if (tonumber(update_gf9.value) == 1) then
-		 log("lock");
+		appKill("com.tencent.mqq");
+		usleep(1000000);
+		log("lock");
         lockScreen();
-        sleep(300);
-		 log("unlock");
+        sleep(600);
+		log("unlock");
         unlockScreen();
         usleep(500000);
     else
