@@ -198,8 +198,8 @@ while total >= -1 do
     usleep(1000000);
 
     --检测主界面
-    if (responsiveGetColor(120, 21) == 16315888 and responsiveGetColor(153, 33) == 16250094 and 
-            responsiveGetColor(172, 18) == 9874870) then
+    if (responsiveGetColor(120, 21) == 16315888 and responsiveGetColor(153, 33) == 16184558 and 
+            responsiveGetColor(172, 18) == 10006456) then
         toast('找到主界面', 1);
         usleep(1000000);
     end
@@ -207,8 +207,8 @@ while total >= -1 do
     usleep(1000000);
 
     --历练检测
-    if (responsiveGetColor(650,1068) == 6185059 and responsiveGetColor(628,1049) == 10924722 and 
-            responsiveGetColor(674,1047) == 5791837 and responsiveGetColor(657,1027) == 15654836) then
+    if (responsiveGetColor(120, 21) == 16315888 and responsiveGetColor(153, 33) == 16184558 and 
+            responsiveGetColor(172, 18) == 10006456) then
         toast('进入历练', 1);
         usleep(1000000);
         responsiveTap(660, 1033);
@@ -307,8 +307,8 @@ while total >= -1 do
     usleep(1000000);
 
     --灵根检测
-    if (responsiveGetColor(78, 1031) == 5462102 and responsiveGetColor(117, 1032) == 14928548 and 
-            responsiveGetColor(96, 1015) == 6518652 and responsiveGetColor(92, 1056) == 5930111) then
+    if (responsiveGetColor(120, 21) == 16315888 and responsiveGetColor(153, 33) == 16184558 and 
+            responsiveGetColor(172, 18) == 10006456) then
         toast('进入灵根', 1);
         usleep(1000000);
         responsiveTap(95, 1030);
@@ -381,9 +381,9 @@ while total >= -1 do
 		gf_times = 5;
 	end
 	usleep(100000);
-    if (total%gf_times == 1) then
-        if (responsiveGetColor(78, 1031) == 5462102 and responsiveGetColor(117, 1032) == 14928548 and 
-            responsiveGetColor(96, 1015) == 6518652 and responsiveGetColor(92, 1056) == 5930111) then
+    if (total%gf_times == 0) then
+        if (responsiveGetColor(120, 21) == 16315888 and responsiveGetColor(153, 33) == 16184558 and 
+            responsiveGetColor(172, 18) == 10006456) then
             toast('进入功法', 1);
             usleep(1000000);
             responsiveTap(238, 1029);
@@ -452,8 +452,8 @@ while total >= -1 do
     end
     
     --检测洞府
-    if (responsiveGetColor(650,1068) == 6185059 and responsiveGetColor(628,1049) == 10924722 and 
-            responsiveGetColor(674,1047) == 5791837 and responsiveGetColor(657,1027) == 15654836) then
+    if (responsiveGetColor(120, 21) == 16315888 and responsiveGetColor(153, 33) == 16184558 and 
+            responsiveGetColor(172, 18) == 10006456) then
         toast('进入洞府', 1);
         usleep(1000000);
         responsiveTap(516, 1029);
@@ -671,8 +671,8 @@ while total >= -1 do
     usleep(3000000);
 
     --检测分享有礼
-    if (responsiveGetColor(248, 470) == 15778415 and responsiveGetColor(313, 482) == 11229249 and 
-      responsiveGetColor(378, 469) == 12354678 and responsiveGetColor(636, 461) == 15586948) then
+    if (responsiveGetColor(120, 21) == 16315888 and responsiveGetColor(153, 33) == 16184558 and 
+            responsiveGetColor(172, 18) == 10006456) then
         toast('检测分享界面', 1);
         usleep(1000000);
         if (responsiveGetColor(418, 575) == 13132901 and responsiveGetColor(444, 572) == 14336182 and 
