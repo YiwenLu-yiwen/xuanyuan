@@ -1,9 +1,24 @@
 local label = {type=CONTROLLER_TYPE.LABEL, text="玄元剑仙-zz脚本"}
-local platf ={type=CONTROLLER_TYPE.PICKER, title="平台选择(QQ需提前进入游戏)", key="platf", value="QQ", options={"QQ", "其他"} }
-local book_row = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几行", key="row", value="2"}
-local book_col = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几列", key="column", value="1"}
-local update_gf9 = {type=CONTROLLER_TYPE.SWITCH, title="自动熄屏", key="息屏", value=1}
+local platf ={type=CONTROLLER_TYPE.PICKER, title="平台选择(QQ需提前进入游戏)", key="platf", value="QQ", options={"QQ", "其他"}}
+local label_book = {type=CONTROLLER_TYPE.LABEL, text="悟道书设置"}
+local label_book1 = {type=CONTROLLER_TYPE.LABEL, text="第一本悟道书设置"}
+local book_row1 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几行", key="row", value="1"}
+local book_col1 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几列", key="column", value="1"}
+local first_times1 = {type=CONTROLLER_TYPE.INPUT, title="悟道几次", key="column", value="2"}
+local label_book2 = {type=CONTROLLER_TYPE.LABEL, text="第二本悟道书设置"}
+local book_row2 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几行", key="row", value="1"}
+local book_col2 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几列", key="column", value="2"}
+local first_times2 = {type=CONTROLLER_TYPE.INPUT, title="悟道几次", key="column", value="2"}
+local label_book3 = {type=CONTROLLER_TYPE.LABEL, text="第三本悟道书设置"}
+local book_row3 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几行", key="row", value="2"}
+local book_col3 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几列", key="column", value="2"}
+local first_times3 = {type=CONTROLLER_TYPE.INPUT, title="悟道几次", key="column", value="2"}
+local label_book4 = {type=CONTROLLER_TYPE.LABEL, text="第四本悟道书设置（无限阅读）"}
+local book_row4 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几行", key="row", value="3"}
+local book_col4 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几列", key="column", value="3"}
+local label_gf = {type=CONTROLLER_TYPE.LABEL, text="功法设置"}
 local update_gf8 = {type=CONTROLLER_TYPE.SWITCH, title="自动悟道", key="悟道", value=1}
+local update_gf9 = {type=CONTROLLER_TYPE.SWITCH, title="自动熄屏", key="息屏", value=1}
 local update_gf1 = {type=CONTROLLER_TYPE.SWITCH, title="升级绝学", key="绝学", value=1}
 local update_gf2 = {type=CONTROLLER_TYPE.SWITCH, title="升级真绝", key="真绝", value=1}
 local update_gf3 = {type=CONTROLLER_TYPE.SWITCH, title="升级门派", key="门派", value=1}
@@ -14,7 +29,8 @@ local update_gf7 = {type=CONTROLLER_TYPE.SWITCH, title="升级残页", key="残�
 --It's an option for users to determine weather the inputs should be remembered, if you use this control in the dialog.
 local remember = {type=CONTROLLER_TYPE.REMEMBER, on=false}
 local btn1 = {type=CONTROLLER_TYPE.BUTTON, title="开始", color=0x71C69E, width=0.8, flag=1, collectInputs=true}
-local controls = {label, platf, book_row, book_col, update_gf8, update_gf1, update_gf2, update_gf3, update_gf4, 
+local controls = {label, platf, label_gf, label_book1, book_row1, book_col1, first_times1, label_book2, book_row2, book_col2, first_times2,
+	label_book3, book_row3, book_col3, first_times3, label_book4, book_row4, book_col4, update_gf8, label_gf, update_gf1, update_gf2, update_gf3, update_gf4, 
     update_gf5, update_gf6, update_gf7, update_gf9, remember, btn1}
 local orientations = { ORIENTATION_TYPE.LANDSCAPE_LEFT, ORIENTATION_TYPE.LANDSCAPE_RIGHT };
 local result = dialog(controls, orientations);
@@ -23,6 +39,9 @@ if (result == 1) then
    toast('开始运行');
 end
 
+local first = tonumber(first_times1.value);
+local second = tonumber(first_times2.value);
+local third = tonumber(first_times3.value);
 
 -- define resolution
 local screenX, screenY = getScreenResolution();
@@ -44,7 +63,7 @@ function responsiveTouchMove(x1, y1,x2,y2)
     touchDown(0, x1*xf, y1*yf); 
     usleep(100000);
     touchMove(0, x2*xf, y2*yf);
-    usleep(100000);
+    usleep(500000);
     touchUp(0, x2*xf, y2*yf);
 end
 function check_gf(x, y, times)
@@ -52,18 +71,25 @@ function check_gf(x, y, times)
     usleep(100000);
     responsiveTap(x, y);
     usleep(1000000);
+	local count = 0
+	while count < 10 do
+		responsiveTouchMove(560,1020,560,333);
+		usleep(100000);
+		count = count + 1
+	end
+	usleep(100000);
     local cnt = 0;
     while cnt < times do
-        local start = 208;
-        while start < 1134 do
+        local start = 1134;
+        while start > 208 do
         responsiveTap(605, start);
         usleep(100000);
         responsiveTap(605, start);
         usleep(100000);
-        start = start + 36;
+        start = start - 36;
         end
         usleep(1000000);
-        responsiveTouchMove(560,1020,560,333);
+		responsiveTouchMove(560,333, 560,1020);
         usleep(1000000);
         cnt = cnt + 1
     end
@@ -110,18 +136,20 @@ function sleep(n)  -- seconds
     repeat until os.time()> sec
 end
 
+
+
 local total = -1;
 while total >= -1 do
     total = total + 1
     if (platf.value == 'QQ') then
 		openURL("https://h5.qzone.qq.com/app/open/1108228472/home?app_display=2&_happ=1&_proxy=1&_wv=145191&pf=wanba_ts.9&via=H5.SHARE.QQAIO");
-		usleep(2000000);
+		usleep(3000000);
 		-- 点击浏览器open 跳转
 		while (responsiveGetColor(622, 742) ==31487) do
 			responsiveTap(622, 742);
 			usleep(1000000);
 		end
-        appActivate("com.tencent.mqq"); --强制切换程序
+        --appActivate("com.tencent.mqq"); --强制切换程序
         usleep(100000);
     end
 
@@ -524,46 +552,65 @@ while total >= -1 do
         usleep(1000000);
         responsiveTap(81, 201);
         usleep(100000);
-        local row_times = tonumber(book_row.value) - 2;
+		if first > 0 then
+			 book_row = tonumber(book_row1.value);
+			 book_col = tonumber(book_col1.value);
+			 first = first - 1;
+			toast(tostring(book_row),3);
+			usleep(3000000);
+		elseif second > 0 then
+			 book_row = tonumber(book_row2.value);
+			 book_col = tonumber(book_col2.value);
+			 second = second - 1;
+		elseif third > 0 then
+			 book_row = tonumber(book_row3.value);
+			 book_col = tonumber(book_col3.value);
+			 third = third - 1;
+		else
+			 book_row = tonumber(book_row4.value);
+			 book_col = tonumber(book_col4.value);
+		end
+		
+        local row_times = book_row - 2;
         local book_location1 = {{x=177, y=412}, {x=383, y=387}, {x=596, y=382}, {x=177, y=671}, {x=383, y=646}, {x=596, y=641}}; --选书坐标1 （正序列，1，2，3，4，5，6）
         local book_location2 = {{x=175, y=710}, {x=375, y=720}, {x=597, y=718}}; --选书坐标2（从第三排开始，1,2,3）
         while row_times > 0 do
             row_times = row_times -1;
-            responsiveTouchMove(177, 763, 177, 583); 
+            responsiveTouchMove(177, 763, 177, 501); 
             usleep(500000);
         end
     
         usleep(500000);
 
         --选书
-        if (tonumber(book_row.value) == 1) then
-            toast('选书', 1);
-            usleep(1000000);
-            responsiveTap(book_location1[tonumber(book_col.value)].x, book_location1[tonumber(book_col.value)].y);
-            usleep(1000000);
-            responsiveTap(380, 686);
-            usleep(100000);
-            responsiveTap(380, 686);
-            usleep(100000);
-        else if (tonumber(book_row.value) == 2) then
-            toast('选书', 1);
-            usleep(1000000);
-            responsiveTap(book_location1[tonumber(book_col.value)+3].x, book_location1[tonumber(book_col.value)+3].y);
-            usleep(1000000);
-            responsiveTap(380, 686);
-            usleep(100000);
-            responsiveTap(380, 686);
-            usleep(100000);
-        else
-            responsiveTap(book_location2[tonumber(book_col.value)].x, book_location2[tonumber(book_col.value)].y);
-            toast('选书', 1);
-            usleep(1000000);
-            responsiveTap(380, 686);
-            usleep(100000);
-            responsiveTap(380, 686);
-            usleep(100000);
-        end
-
+		if (book_row == 1) then
+			toast('选书', 1);
+			usleep(1000000);
+			responsiveTap(book_location1[book_col].x, book_location1[book_col].y);
+			usleep(1000000);
+			responsiveTap(380, 686);
+			usleep(100000);
+			responsiveTap(380, 686);
+			usleep(100000);
+		else if (book_row == 2) then
+				toast('选书', 1);
+				usleep(1000000);
+				responsiveTap(book_location1[book_col+3].x, book_location1[book_col+3].y);
+				usleep(1000000);
+				responsiveTap(380, 686);
+				usleep(100000);
+				responsiveTap(380, 686);
+				usleep(100000);
+		else
+			responsiveTap(book_location2[book_col].x, book_location2[book_col].y);
+			toast('选书', 1);
+			usleep(1000000);
+			responsiveTap(380, 686);
+			usleep(100000);
+			responsiveTap(380, 686);
+			usleep(100000);
+		end
+			
         -- 多点开了界面
         while (responsiveTap(636,378) == 13588026) do
             toast('关闭多余界面', 1);
