@@ -381,7 +381,7 @@ while total >= -1 do
 		gf_times = 5;
 	end
 	usleep(100000);
-    if (total%gf_times == 0) then
+    if (total%gf_times == 1) then
         if (responsiveGetColor(120, 21) == 16315888 and responsiveGetColor(153, 33) == 16184558 and 
             responsiveGetColor(172, 18) == 10006456) then
             toast('进入功法', 1);
@@ -660,8 +660,8 @@ while total >= -1 do
     usleep(1000000);
     
     --分享有礼
-    if (responsiveGetColor(78, 1031) == 5462102 and responsiveGetColor(117, 1032) == 14928548 and 
-            responsiveGetColor(96, 1015) == 6518652 and responsiveGetColor(92, 1056) == 5930111) then
+    if (responsiveGetColor(120, 21) == 16315888 and responsiveGetColor(153, 33) == 16184558 and 
+            responsiveGetColor(172, 18) == 10006456) then
         toast('进入分享界面', 1);
         usleep(1000000);
         responsiveTap(624, 159);
@@ -671,8 +671,8 @@ while total >= -1 do
     usleep(3000000);
 
     --检测分享有礼
-    if (responsiveGetColor(120, 21) == 16315888 and responsiveGetColor(153, 33) == 16184558 and 
-            responsiveGetColor(172, 18) == 10006456) then
+    if (responsiveGetColor(248, 470) == 15778415 and responsiveGetColor(313, 482) == 11229249 and 
+      responsiveGetColor(378, 469) == 12354678 and responsiveGetColor(636, 461) == 15586948) then
         toast('检测分享界面', 1);
         usleep(1000000);
         if (responsiveGetColor(418, 575) == 13132901 and responsiveGetColor(444, 572) == 14336182 and 
