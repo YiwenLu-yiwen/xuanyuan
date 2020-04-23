@@ -668,7 +668,7 @@ while total >= -1 do
         usleep(1000000);
     end
 
-    usleep(3000000);
+    usleep(10000000);
 
     --检测分享有礼
     if (responsiveGetColor(248, 470) == 15778415 and responsiveGetColor(313, 482) == 11229249 and 
