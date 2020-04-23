@@ -1,5 +1,6 @@
 local label = {type=CONTROLLER_TYPE.LABEL, text="玄元剑仙-zz脚本"}
 local platf ={type=CONTROLLER_TYPE.PICKER, title="平台选择(QQ需提前进入游戏)", key="platf", value="QQ", options={"QQ", "其他"}}
+local platf1 = {type=CONTROLLER_TYPE.PICKER, title="洞府升级", key="wood", value="粮食，木头", options={"粮食，木头，铁", "粮食，木头"}}
 local label_book = {type=CONTROLLER_TYPE.LABEL, text="悟道书设置"}
 local label_book1 = {type=CONTROLLER_TYPE.LABEL, text="第一本悟道书设置"}
 local book_row1 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几行", key="row", value="1"}
@@ -29,7 +30,7 @@ local update_gf7 = {type=CONTROLLER_TYPE.SWITCH, title="升级残页", key="残�
 --It's an option for users to determine weather the inputs should be remembered, if you use this control in the dialog.
 local remember = {type=CONTROLLER_TYPE.REMEMBER, on=false}
 local btn1 = {type=CONTROLLER_TYPE.BUTTON, title="开始", color=0x71C69E, width=0.8, flag=1, collectInputs=true}
-local controls = {label, platf, label_gf, label_book1, book_row1, book_col1, first_times1, label_book2, book_row2, book_col2, first_times2,
+local controls = {label, platf, platf1, label_gf, label_book1, book_row1, book_col1, first_times1, label_book2, book_row2, book_col2, first_times2,
 	label_book3, book_row3, book_col3, first_times3, label_book4, book_row4, book_col4, update_gf8, label_gf, update_gf1, update_gf2, update_gf3, update_gf4, 
     update_gf5, update_gf6, update_gf7, update_gf9, remember, btn1}
 local orientations = { ORIENTATION_TYPE.LANDSCAPE_LEFT, ORIENTATION_TYPE.LANDSCAPE_RIGHT };
@@ -479,10 +480,12 @@ while total >= -1 do
             usleep(100000);
             responsiveTap(490, 805);
             usleep(1000000);
-            responsiveTap(606, 802);
-            usleep(100000);
-            responsiveTap(490, 807);
-            usleep(1000000);
+			if (platf1.value == '粮食，木头，铁') then
+				responsiveTap(606, 802);
+				usleep(100000);
+				responsiveTap(490, 807);
+				usleep(1000000);
+			end
         else
             toast('木头未满级', 1);
             usleep(1000000);
@@ -668,11 +671,11 @@ while total >= -1 do
         usleep(1000000);
     end
 
-    usleep(10000000);
+    usleep(3000000);
 
     --检测分享有礼
-    if (responsiveGetColor(248, 470) == 15778415 and responsiveGetColor(313, 482) == 11229249 and 
-      responsiveGetColor(378, 469) == 12354678 and responsiveGetColor(636, 461) == 15586948) then
+    if (responsiveGetColor(248, 470) == 15647086 and responsiveGetColor(313, 482) == 11295300 and 
+      responsiveGetColor(378, 469) == 12487548 and responsiveGetColor(636, 461) == 15586948) then
         toast('检测分享界面', 1);
         usleep(1000000);
         if (responsiveGetColor(418, 575) == 13132901 and responsiveGetColor(444, 572) == 14336182 and 
@@ -697,7 +700,7 @@ while total >= -1 do
             responsiveTap(423, 386);
             usleep(1000000);
         end
-    end
+   end
 
     usleep(1000000);
     -- 每隔16min
