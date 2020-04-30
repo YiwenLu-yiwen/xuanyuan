@@ -3,35 +3,39 @@ local platf ={type=CONTROLLER_TYPE.PICKER, title="平台选择(QQ需提前进入
 local platf1 = {type=CONTROLLER_TYPE.PICKER, title="洞府升级", key="wood", value="粮食，木头", options={"粮食，木头，铁", "粮食，木头"}}
 local label_book = {type=CONTROLLER_TYPE.LABEL, text="悟道书设置"}
 local label_book1 = {type=CONTROLLER_TYPE.LABEL, text="第一本悟道书设置"}
-local book_row1 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几行", key="row", value="1"}
-local book_col1 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几列", key="column", value="1"}
-local first_times1 = {type=CONTROLLER_TYPE.INPUT, title="悟道几次", key="column", value="2"}
+local book_row1 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几行", key="row", value="4"}
+local book_col1 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几列", key="column", value="3"}
+local first_times1 = {type=CONTROLLER_TYPE.INPUT, title="悟道几次", key="column", value="3"}
 local label_book2 = {type=CONTROLLER_TYPE.LABEL, text="第二本悟道书设置"}
-local book_row2 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几行", key="row", value="1"}
-local book_col2 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几列", key="column", value="2"}
-local first_times2 = {type=CONTROLLER_TYPE.INPUT, title="悟道几次", key="column", value="2"}
+local book_row2 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几行", key="row", value="4"}
+local book_col2 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几列", key="column", value="1"}
+local first_times2 = {type=CONTROLLER_TYPE.INPUT, title="悟道几次", key="column", value="3"}
 local label_book3 = {type=CONTROLLER_TYPE.LABEL, text="第三本悟道书设置"}
-local book_row3 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几行", key="row", value="2"}
-local book_col3 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几列", key="column", value="2"}
-local first_times3 = {type=CONTROLLER_TYPE.INPUT, title="悟道几次", key="column", value="2"}
+local book_row3 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几行", key="row", value="3"}
+local book_col3 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几列", key="column", value="3"}
+local first_times3 = {type=CONTROLLER_TYPE.INPUT, title="悟道几次", key="column", value="3"}
 local label_book4 = {type=CONTROLLER_TYPE.LABEL, text="第四本悟道书设置（无限阅读）"}
-local book_row4 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几行", key="row", value="3"}
-local book_col4 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几列", key="column", value="3"}
+local book_row4 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几行", key="row", value="4"}
+local book_col4 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几列", key="column", value="2"}
 local label_gf = {type=CONTROLLER_TYPE.LABEL, text="功法设置"}
 local update_gf8 = {type=CONTROLLER_TYPE.SWITCH, title="自动悟道", key="悟道", value=1}
 local update_gf9 = {type=CONTROLLER_TYPE.SWITCH, title="自动熄屏", key="息屏", value=1}
 local update_gf1 = {type=CONTROLLER_TYPE.SWITCH, title="升级绝学", key="绝学", value=1}
-local update_gf2 = {type=CONTROLLER_TYPE.SWITCH, title="升级真绝", key="真绝", value=1}
-local update_gf3 = {type=CONTROLLER_TYPE.SWITCH, title="升级门派", key="门派", value=1}
+local update_gf2 = {type=CONTROLLER_TYPE.SWITCH, title="升级真绝", key="真绝", value=0}
+local update_gf3 = {type=CONTROLLER_TYPE.SWITCH, title="升级门派", key="门派", value=0}
 local update_gf4 = {type=CONTROLLER_TYPE.SWITCH, title="升级秘籍", key="秘籍", value=1}
 local update_gf5 = {type=CONTROLLER_TYPE.SWITCH, title="升级心经", key="心经", value=1}
-local update_gf6 = {type=CONTROLLER_TYPE.SWITCH, title="升级遁术", key="遁术", value=1}
-local update_gf7 = {type=CONTROLLER_TYPE.SWITCH, title="升级残页", key="残页", value=1}
+local update_gf6 = {type=CONTROLLER_TYPE.SWITCH, title="升级遁术", key="遁术", value=0}
+local update_gf7 = {type=CONTROLLER_TYPE.SWITCH, title="升级残页", key="残页", value=0}
+local update_gf10 = {type=CONTROLLER_TYPE.SWITCH, title="灵根已经100级(升级功法时间小于45分钟)", key="灵根100", value=1}
+local update_iron = {type=CONTROLLER_TYPE.SWITCH, title="自动器道（有门派加成才会自动学）", key="器道", value=1}
+local update_medi = {type=CONTROLLER_TYPE.SWITCH, title="自动丹道（有门派加成才会自动学）", key="丹道", value=1}
+local label_iron = {type=CONTROLLER_TYPE.LABEL, text="器道丹道设置"}
 --It's an option for users to determine weather the inputs should be remembered, if you use this control in the dialog.
 local remember = {type=CONTROLLER_TYPE.REMEMBER, on=false}
 local btn1 = {type=CONTROLLER_TYPE.BUTTON, title="开始", color=0x71C69E, width=0.8, flag=1, collectInputs=true}
-local controls = {label, platf, platf1, label_gf, label_book1, book_row1, book_col1, first_times1, label_book2, book_row2, book_col2, first_times2,
-	label_book3, book_row3, book_col3, first_times3, label_book4, book_row4, book_col4, update_gf8, label_gf, update_gf1, update_gf2, update_gf3, update_gf4, 
+local controls = {label, platf, platf1, label_iron, update_medi, update_iron, label_book, label_book1, book_row1, book_col1, first_times1, label_book2, book_row2, book_col2, first_times2,
+	label_book3, book_row3, book_col3, first_times3, label_book4, book_row4, book_col4, label_gf, update_gf8, label_gf, update_gf10, update_gf1, update_gf2, update_gf3, update_gf4, 
     update_gf5, update_gf6, update_gf7, update_gf9, remember, btn1}
 local orientations = { ORIENTATION_TYPE.LANDSCAPE_LEFT, ORIENTATION_TYPE.LANDSCAPE_RIGHT };
 local result = dialog(controls, orientations);
@@ -73,7 +77,7 @@ function check_gf(x, y, times)
     responsiveTap(x, y);
     usleep(1000000);
 	local count = 0
-	while count < 10 do
+	while count < 12 do
 		responsiveTouchMove(560,1020,560,333);
 		usleep(100000);
 		count = count + 1
@@ -197,11 +201,30 @@ while total >= -1 do
     end
 	
     usleep(1000000);
+	
+	--检测检飞升主界面
+    if (responsiveGetColor(120, 21) == 16381424 and responsiveGetColor(153, 33) == 16381422 and 
+            responsiveGetColor(172, 18) == 13486273) then
+        toast('找到飞升主界面', 1);
+        usleep(1000000);
+	end
+	
+	usleep(1000000);
+	
+	while (responsiveGetColor(120, 21) == 16381424 and responsiveGetColor(153, 33) == 16381422 and 
+            responsiveGetColor(172, 18) == 13486273) do
+		toast('去地界', 1);
+		usleep(500000);
+        responsiveTap(33, 209);
+	end
+	
+    usleep(5000000);
 
-    --检测主界面
+	
+	--检测地上主界面
     if (responsiveGetColor(120, 21) == 16315888 and responsiveGetColor(153, 33) == 16184558 and 
             responsiveGetColor(172, 18) == 10006456) then
-        toast('找到主界面', 1);
+        toast('找到地上主界面', 1);
         usleep(1000000);
     end
 	
@@ -218,25 +241,28 @@ while total >= -1 do
 
     usleep(1000000);
 	
-	toast("检测圣兽",1);
-	usleep(1000000);
-	responsiveTap(646, 1027);
-	usleep(5000000);
-	
-	while (responsiveGetColor(245,254) == 5983502 and responsiveGetColor(302,262) == 15651945 and 
+	--检测圣兽
+	if (responsiveGetColor(360,1035) == 14402463 and responsiveGetColor(517,1030) == 15324846 and 
+    responsiveGetColor(630,1015) == 15522482 and responsiveGetColor(653,1069) == 16772306) then
+		toast("检测圣兽",1);
+		usleep(1000000);
+		responsiveTap(646, 1027);
+        usleep(6000000);
+		while (responsiveGetColor(245,254) == 5983502 and responsiveGetColor(302,262) == 15651945 and 
 			responsiveGetColor(642, 194) == 13588026) do
-		toast("检测到圣兽界面",1);
-		usleep(1000000);
-		responsiveTap(373, 1119);
-		usleep(100000);
-		responsiveTap(373, 1119);
-		usleep(100000);
-		toast("关闭圣兽界面",1);
-		usleep(1000000);
-		responsiveTap(642, 194);
-		usleep(1000000);
-	end
-	
+			toast("检测到圣兽界面",1);
+			usleep(1000000);
+			responsiveTap(373, 1119);
+			usleep(100000);
+			responsiveTap(373, 1119);
+			usleep(100000);
+			toast("关闭圣兽界面",1);
+			usleep(1000000);
+			responsiveTap(642, 194);
+			usleep(1000000);
+		end
+    end
+
 	usleep(1000000);
 			
     --检测历练界面
@@ -288,7 +314,7 @@ while total >= -1 do
         toast('退出神游界面', 1);
         usleep(1000000);
         responsiveTap(57, 33);
-        usleep(2000000);
+        usleep(1000000);
     end
 	
     usleep(1000000);
@@ -378,11 +404,12 @@ while total >= -1 do
 	
     --功法
 	local gf_times = 4;
-	if (tonumber(update_gf9.value) == 1) then
-		gf_times = 5;
+	if (tonumber(update_gf10.value) == 1) then
+		gf_times = 2
 	end
+	
 	usleep(100000);
-    if (total%gf_times == 1) then
+    if (total%gf_times == 0) then
         if (responsiveGetColor(120, 21) == 16315888 and responsiveGetColor(153, 33) == 16184558 and 
             responsiveGetColor(172, 18) == 10006456) then
             toast('进入功法', 1);
@@ -407,31 +434,31 @@ while total >= -1 do
         if (tonumber(update_gf2.value) == 1) then
             toast('升级真绝', 1);
             usleep(1000000);
-            check_gf(447, 104, 5);
+            check_gf(447, 104, 9);
         end
         usleep(1000000);
         if (tonumber(update_gf3.value) == 1) then
             toast('升级门派', 1);
             usleep(1000000);
-            check_gf(150, 105, 2);
+            check_gf(150, 105, 3);
         end
         usleep(1000000);
         if (tonumber(update_gf4.value) == 1) then
             toast('升级秘籍', 1);
             usleep(1000000);
-            check_gf(288, 104, 3);
+            check_gf(288, 104, 5);
         end
         usleep(1000000);
         if (tonumber(update_gf5.value) == 1) then
             toast('升级心经', 1);
             usleep(1000000);
-            check_gf(608, 106, 3);
+            check_gf(608, 106, 5);
         end
         usleep(1000000);
         if (tonumber(update_gf6.value) == 1) then
             toast('升级遁术', 1);
             usleep(1000000);
-            check_gf(142, 171, 3);
+            check_gf(142, 171, 5);
         end
         usleep(1000000);
         if (tonumber(update_gf7.value) == 1) then
@@ -442,7 +469,7 @@ while total >= -1 do
     end
 	
     usleep(1000000);
-
+	
     --退出功法
     while (responsiveGetColor(544, 163) == 12362367 and responsiveGetColor(551, 169) == 13547400 and 
             responsiveGetColor(669, 166) == 13416074 and responsiveGetColor(628, 164) == 9535077 and responsiveGetColor(599, 174) == 3815477) do
@@ -492,22 +519,80 @@ while total >= -1 do
         end
     
         usleep(1000000);
+	end
+	
+	usleep(1000000);
+	
+	
+	--点击书阁
+	if (responsiveGetColor(283, 142) == 13605221 and responsiveGetColor(282, 159) == 8736827 and 
+			responsiveGetColor(528, 148) == 9523242 and responsiveGetColor(136, 237) == 765169) then
+		if (tonumber(update_gf8.value) == 1) then
+			toast('点击书阁', 1);
+			usleep(1000000);
+			responsiveTap(96, 1032);
+			usleep(1000000);
+		end
+	end
 
-        --点击书阁
-        if (tonumber(update_gf8.value) == 1) then
-            toast('点击书阁', 1);
-            usleep(1000000);
-            responsiveTap(96, 1032);
-            usleep(1000000);
-        end
-    end
+	usleep(5000000);
+	
+	--检测丹道
+	if (responsiveGetColor(282, 145) == 5785389 and responsiveGetColor(284, 160) == 3022104 and 
+			responsiveGetColor(291, 158) == 4137752) then
+		toast('检测到丹道界面', 1);
+		usleep(1000000);
+		if (tonumber(update_medi.value) == 1 and responsiveGetColor(115, 485) == 3318589) then
+			if (responsiveGetColor(534, 912) == 14452778 and responsiveGetColor(524, 903) == 6173210) then
+				toast('检测到丹道加成, 开始升级');
+				usleep(1000000);
+				responsiveTap(500, 902);
+			else
+				toast('丹道升级中');
+				usleep(1000000);
+			end
+		end
+		usleep(100000);
+		if (tonumber(update_iron.value) == 1) then
+			toast('进入器道', 1);
+			usleep(1000000);
+			responsiveTap(284, 337);
+			usleep(100000);
+			responsiveTap(284, 337);
+			usleep(1000000);
+		end
+	end
 
-    usleep(5000000);
+	usleep(1000000);
+
+	--检测器道
+	if (responsiveGetColor(284, 337) == 3754835 and responsiveGetColor(284, 301) == 3754835 and 
+			responsiveGetColor(641, 418) == 13653820) then
+		toast('检测到器道界面', 1);
+		usleep(1000000);
+		if (tonumber(update_iron.value) == 1 and responsiveGetColor(115, 485) == 3318589) then
+			if (responsiveGetColor(534, 912) == 14452778 and responsiveGetColor(524, 903) == 6173210) then
+				toast('检测到器道加成, 开始升级');
+				usleep(1000000);
+				responsiveTap(500, 902);
+			else
+				toast('器道升级中');
+				usleep(1000000);
+			end
+		end
+		toast('返回丹道');
+		usleep(1000000);
+		responsiveTap(154, 299);
+		usleep(100000);
+		responsiveTap(154, 299);
+	end
+
+	usleep(1000000);
 	
     --检测书阁
     if (responsiveGetColor(282, 145) == 5785389 and responsiveGetColor(284, 160) == 3022104 and 
     responsiveGetColor(291, 158) == 4137752) then
-        toast('检测到书阁界面', 1);
+        toast('检测到丹道界面', 1);
         usleep(1000000);
         if (tonumber(update_gf8.value) == 1) then
             toast('进入悟道', 1);
