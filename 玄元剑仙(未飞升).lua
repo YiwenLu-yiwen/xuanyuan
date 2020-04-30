@@ -20,7 +20,7 @@ local book_col4 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几列", key="
 local label_gf = {type=CONTROLLER_TYPE.LABEL, text="功法设置"}
 local update_gf8 = {type=CONTROLLER_TYPE.SWITCH, title="自动悟道", key="悟道", value=1}
 local update_gf9 = {type=CONTROLLER_TYPE.SWITCH, title="自动熄屏", key="息屏", value=1}
-local update_gf1 = {type=CONTROLLER_TYPE.SWITCH, title="升级绝学", key="绝学", value=1}
+local update_gf1 = {type=CONTROLLER_TYPE.SWITCH, title="升级绝学", key="绝学", value=0}
 local update_gf2 = {type=CONTROLLER_TYPE.SWITCH, title="升级真绝", key="真绝", value=0}
 local update_gf3 = {type=CONTROLLER_TYPE.SWITCH, title="升级门派", key="门派", value=0}
 local update_gf4 = {type=CONTROLLER_TYPE.SWITCH, title="升级秘籍", key="秘籍", value=1}
@@ -211,6 +211,105 @@ while total >= -1 do
 	
 	usleep(1000000);
 	
+	if (responsiveGetColor(120, 21) == 16381424 and responsiveGetColor(153, 33) == 16381422 and 
+		responsiveGetColor(172, 18) == 13486273) then
+	toast('进入宗门', 1);
+	responsiveTap(98,1029);
+	usleep(5000000);
+	end
+
+	usleep(100000);
+
+	if (responsiveGetColor(106, 1035) == 5992067 and responsiveGetColor(343, 1045) == 12755071 and 
+			responsiveGetColor(576, 1033) == 7438222 and responsiveGetColor(130, 46) == 16184815 and 
+			responsiveGetColor(61, 33) == 14806502) then
+		toast('检测到宗门', 1);
+		usleep(1000000);
+		toast('进入传道院', 1);
+		usleep(100000);
+		responsiveTap(55, 257);
+		usleep(5000000);
+	end
+
+	usleep(100000);
+
+	if (responsiveGetColor(205, 775) == 16310657 and responsiveGetColor(383, 704) == 16377226 and 
+			responsiveGetColor(553, 693) == 12812351) then
+		toast('检测到传道院', 1);
+		usleep(1000000);
+		toast('进入护法', 1);
+		usleep(100000);
+		responsiveTap(548, 770);
+		usleep(3000000);
+	end
+
+	usleep(100000);
+
+	if (responsiveGetColor(100, 47) == 6250076 and responsiveGetColor(228, 889) == 15313229 and 
+			responsiveGetColor(530, 886) == 15512148 and responsiveGetColor(640, 418) == 13192754) then
+		toast('开始护法', 1);
+		usleep(100000);
+		responsiveTap(533, 887);
+		usleep(100000);
+		responsiveTap(518, 798);
+		usleep(1000000);
+	end
+
+	usleep(1000000);
+
+	if (responsiveGetColor(205, 775) == 16310657 and responsiveGetColor(383, 704) == 16377226 and 
+			responsiveGetColor(553, 693) == 12812351) then
+		toast('退出护法', 1);
+		responsiveTap(93, 43);
+		usleep(1000000);
+	end
+	
+	usleep(1000000);
+	
+	if (responsiveGetColor(106, 1035) == 5992067 and responsiveGetColor(343, 1045) == 12755071 and 
+		responsiveGetColor(576, 1033) == 7438222 and responsiveGetColor(130, 46) == 16184815 and 
+		responsiveGetColor(61, 33) == 14806502) then
+		toast('检测到宗门', 1);
+		usleep(1000000);
+		toast('进入外事大厅', 1);
+		usleep(100000);
+		responsiveTap(675, 816);
+		usleep(1000000);
+		toast('进入盟主令', 1);
+		responsiveTap(383, 775);
+		usleep(2000000);
+	end
+
+	usleep(1000000);
+
+	if (responsiveGetColor(79, 45) == 5592920 and responsiveGetColor(149, 45) == 1579291 and 
+			responsiveGetColor(217, 62) == 1579291 and responsiveGetColor(643, 214) == 13719613) then
+		toast('检测到外事大厅，开始任务', 1);
+		usleep(1000000);
+		responsiveTap(377, 1081);
+		usleep(500000);
+		responsiveTap(377, 1081);
+		usleep(500000);
+		responsiveTap(643, 214);
+		usleep(500000);
+		toast('退出外事大厅', 1);
+		responsiveTap(49, 42);
+		usleep(1000000);
+	end
+
+	usleep(1000000);
+
+	if (responsiveGetColor(106, 1035) == 5992067 and responsiveGetColor(343, 1045) == 12755071 and 
+			responsiveGetColor(576, 1033) == 7438222 and responsiveGetColor(130, 46) == 16184815 and 
+			responsiveGetColor(61, 33) == 14806502) then
+		toast('退出宗门', 1);
+		usleep(100000);
+		responsiveTap(49, 42);
+		usleep(1000000);
+	end
+	
+	usleep(1000000);
+	
 	while (responsiveGetColor(120, 21) == 16381424 and responsiveGetColor(153, 33) == 16381422 and 
             responsiveGetColor(172, 18) == 13486273) do
 		toast('去地界', 1);
@@ -245,19 +344,18 @@ while total >= -1 do
 	if (responsiveGetColor(360,1035) == 14402463 and responsiveGetColor(517,1030) == 15324846 and 
     responsiveGetColor(630,1015) == 15522482 and responsiveGetColor(653,1069) == 16772306) then
 		toast("检测圣兽",1);
-		usleep(1000000);
+		usleep(100000);
 		responsiveTap(646, 1027);
         usleep(6000000);
 		while (responsiveGetColor(245,254) == 5983502 and responsiveGetColor(302,262) == 15651945 and 
 			responsiveGetColor(642, 194) == 13588026) do
 			toast("检测到圣兽界面",1);
+			usleep(100000);
+			responsiveTap(373, 1119);
+			usleep(100000);
+			responsiveTap(373, 1119);
 			usleep(1000000);
-			responsiveTap(373, 1119);
-			usleep(100000);
-			responsiveTap(373, 1119);
-			usleep(100000);
 			toast("关闭圣兽界面",1);
-			usleep(1000000);
 			responsiveTap(642, 194);
 			usleep(1000000);
 		end
@@ -277,7 +375,7 @@ while total >= -1 do
     if (responsiveGetColor(360,1035) == 14402463 and responsiveGetColor(517,1030) == 15324846 and 
     responsiveGetColor(630,1015) == 15522482 and responsiveGetColor(653,1069) == 16772306) then
         toast('检测神游', 1);
-        usleep(1000000);
+		usleep(100000);
         responsiveTap(248, 1034);
         usleep(10000000);
     end 
@@ -349,8 +447,8 @@ while total >= -1 do
     --灵根界面检测
     if (responsiveGetColor(199, 42) == 1979717 and responsiveGetColor(115, 40) == 1715515 and 
             responsiveGetColor(84, 27) == 1715515 and responsiveGetColor(57,42) == 1058351) then
-        toast('已在灵根界面', 1);
-        usleep(1000000);
+        toast('已在灵根界面，升级灵根', 1);
+        usleep(100000);
         responsiveTap(375, 278);
         usleep(100000);
         responsiveTap(375, 278);
@@ -395,7 +493,7 @@ while total >= -1 do
     while (responsiveGetColor(199, 42) == 1979717 and responsiveGetColor(115, 40) == 1715515 and 
             responsiveGetColor(84, 27) == 1715515 and responsiveGetColor(57,42) == 1058351) do
         toast('退出灵根界面', 1);
-        usleep(1000000);
+        usleep(100000);
         responsiveTap(29, 39);
         usleep(1000000);
     end
@@ -413,7 +511,7 @@ while total >= -1 do
         if (responsiveGetColor(120, 21) == 16315888 and responsiveGetColor(153, 33) == 16184558 and 
             responsiveGetColor(172, 18) == 10006456) then
             toast('进入功法', 1);
-            usleep(1000000);
+            usleep(100000);
             responsiveTap(238, 1029);
 			usleep(100000);
             responsiveTap(238, 1029);
@@ -427,31 +525,31 @@ while total >= -1 do
             responsiveGetColor(669, 166) == 13416074 and responsiveGetColor(628, 164) == 9535077 and responsiveGetColor(599, 174) == 3815477) then
         if (tonumber(update_gf1.value) == 1) then
             toast('升级绝学', 1);
-            usleep(1000000);
+            usleep(100000);
             check_gf(297, 169, 1);
         end
         usleep(1000000);
         if (tonumber(update_gf2.value) == 1) then
             toast('升级真绝', 1);
-            usleep(1000000);
+            usleep(100000);
             check_gf(447, 104, 9);
         end
         usleep(1000000);
         if (tonumber(update_gf3.value) == 1) then
             toast('升级门派', 1);
-            usleep(1000000);
+            usleep(100000);
             check_gf(150, 105, 3);
         end
         usleep(1000000);
         if (tonumber(update_gf4.value) == 1) then
             toast('升级秘籍', 1);
-            usleep(1000000);
+            usleep(100000);
             check_gf(288, 104, 5);
         end
         usleep(1000000);
         if (tonumber(update_gf5.value) == 1) then
             toast('升级心经', 1);
-            usleep(1000000);
+            usleep(100000);
             check_gf(608, 106, 5);
         end
         usleep(1000000);
@@ -463,7 +561,7 @@ while total >= -1 do
         usleep(1000000);
         if (tonumber(update_gf7.value) == 1) then
             toast('升级残页', 1);
-            usleep(1000000);
+            usleep(100000);
             check_gf(451,158, 1);
         end
     end
@@ -474,7 +572,7 @@ while total >= -1 do
     while (responsiveGetColor(544, 163) == 12362367 and responsiveGetColor(551, 169) == 13547400 and 
             responsiveGetColor(669, 166) == 13416074 and responsiveGetColor(628, 164) == 9535077 and responsiveGetColor(599, 174) == 3815477) do
         toast('退出功法界面', 1);
-        usleep(1000000);
+        usleep(100000);
         responsiveTap(36, 33);
         usleep(1000000);
     end
@@ -483,7 +581,7 @@ while total >= -1 do
     if (responsiveGetColor(120, 21) == 16315888 and responsiveGetColor(153, 33) == 16184558 and 
             responsiveGetColor(172, 18) == 10006456) then
         toast('进入洞府', 1);
-        usleep(1000000);
+        usleep(100000);
         responsiveTap(516, 1029);
         usleep(5000000);
     end
@@ -498,7 +596,7 @@ while total >= -1 do
              and responsiveGetColor(358, 593) == 14868175 and responsiveGetColor(356, 593) == 6773062 
                 and responsiveGetColor(425, 589) == 5917497) then
             toast('洞府点击升级', 1);
-            usleep(1000000);
+            usleep(100000);
             responsiveTap(609, 421);
             usleep(100000);
             responsiveTap(490, 807);
@@ -529,7 +627,7 @@ while total >= -1 do
 			responsiveGetColor(528, 148) == 9523242 and responsiveGetColor(136, 237) == 765169) then
 		if (tonumber(update_gf8.value) == 1) then
 			toast('点击书阁', 1);
-			usleep(1000000);
+			usleep(100000);
 			responsiveTap(96, 1032);
 			usleep(1000000);
 		end
@@ -545,17 +643,17 @@ while total >= -1 do
 		if (tonumber(update_medi.value) == 1 and responsiveGetColor(115, 485) == 3318589) then
 			if (responsiveGetColor(534, 912) == 14452778 and responsiveGetColor(524, 903) == 6173210) then
 				toast('检测到丹道加成, 开始升级');
-				usleep(1000000);
+				usleep(100000);
 				responsiveTap(500, 902);
 			else
 				toast('丹道升级中');
-				usleep(1000000);
+				usleep(100000);
 			end
 		end
-		usleep(100000);
+		usleep(1000000);
 		if (tonumber(update_iron.value) == 1) then
 			toast('进入器道', 1);
-			usleep(1000000);
+			usleep(100000);
 			responsiveTap(284, 337);
 			usleep(100000);
 			responsiveTap(284, 337);
@@ -573,15 +671,16 @@ while total >= -1 do
 		if (tonumber(update_iron.value) == 1 and responsiveGetColor(115, 485) == 3318589) then
 			if (responsiveGetColor(534, 912) == 14452778 and responsiveGetColor(524, 903) == 6173210) then
 				toast('检测到器道加成, 开始升级');
-				usleep(1000000);
+				usleep(100000);
 				responsiveTap(500, 902);
+				usleep(1000000);
 			else
 				toast('器道升级中');
 				usleep(1000000);
 			end
 		end
 		toast('返回丹道');
-		usleep(1000000);
+		usleep(100000);
 		responsiveTap(154, 299);
 		usleep(100000);
 		responsiveTap(154, 299);
@@ -596,7 +695,7 @@ while total >= -1 do
         usleep(1000000);
         if (tonumber(update_gf8.value) == 1) then
             toast('进入悟道', 1);
-            usleep(1000000);
+            usleep(100000);
             responsiveTap(396, 307);
             usleep(100000);
             responsiveTap(396, 307);
@@ -617,14 +716,14 @@ while total >= -1 do
         if (responsiveGetColor(375, 896) == 15379022 and responsiveGetColor(409, 908) == 14453035 and 
         responsiveGetColor(358, 894) == 6501916) then
             toast('开始悟道', 1);
-            usleep(1000000);
+            usleep(100000);
             responsiveTap(373, 895);
             usleep(3000000);
         else
             toast('悟道未结束', 1);
             usleep(1000000);
             toast("退出悟道", 1);
-            usleep(1000000);
+            usleep(100000);
             responsiveTap(640, 418);
             usleep(100000);
         end
@@ -637,9 +736,9 @@ while total >= -1 do
        responsiveGetColor(137,112) == 13613194 and responsiveGetColor(455, 112) == 16444319 and 
        responsiveGetColor(406, 123) == 16111236) then
         toast('检测到道书界面', 1);
-        usleep(1000000);
-        responsiveTap(81, 201);
         usleep(100000);
+        responsiveTap(81, 201);
+        usleep(1000000);
 		if first > 0 then
 			 book_row = tonumber(book_row1.value);
 			 book_col = tonumber(book_col1.value);
@@ -673,7 +772,7 @@ while total >= -1 do
         --选书
 		if (book_row == 1) then
 			toast('选书', 1);
-			usleep(1000000);
+			usleep(100000);
 			responsiveTap(book_location1[book_col].x, book_location1[book_col].y);
 			usleep(1000000);
 			responsiveTap(380, 686);
@@ -682,7 +781,7 @@ while total >= -1 do
 			usleep(100000);
 		else if (book_row == 2) then
 				toast('选书', 1);
-				usleep(1000000);
+				usleep(100000);
 				responsiveTap(book_location1[book_col+3].x, book_location1[book_col+3].y);
 				usleep(1000000);
 				responsiveTap(380, 686);
@@ -692,7 +791,7 @@ while total >= -1 do
 		else
 			responsiveTap(book_location2[book_col].x, book_location2[book_col].y);
 			toast('选书', 1);
-			usleep(1000000);
+			usleep(100000);
 			responsiveTap(380, 686);
 			usleep(100000);
 			responsiveTap(380, 686);
@@ -702,9 +801,9 @@ while total >= -1 do
         -- 多点开了界面
         while (responsiveTap(636,378) == 13588026) do
             toast('关闭多余界面', 1);
-            usleep(1000000);
-            responsiveTap(636, 378);
             usleep(100000);
+            responsiveTap(636, 378);
+            usleep(1000000);
         end
     end
 	end
@@ -716,11 +815,11 @@ while total >= -1 do
        responsiveGetColor(137,112) == 13613194 and responsiveGetColor(455, 112) == 16444319 and 
        responsiveGetColor(406, 123) == 16111236) then
         toast('退出道书界面', 1);
+        usleep(100000);
+        responsiveTap(49, 40);
+        usleep(100000);
+        responsiveTap(49, 40);
         usleep(1000000);
-        responsiveTap(49, 40);
-        usleep(100000);
-        responsiveTap(49, 40);
-        usleep(100000);
     end
 
     usleep(1000000);
@@ -729,7 +828,7 @@ while total >= -1 do
     if (responsiveGetColor(691, 539) == 9128487 and responsiveGetColor(629, 1301) == 14452778 and 
        responsiveGetColor(138, 1286) == 12025402 and responsiveGetColor(38, 29) == 16310408) then
         toast('检测到背包', 1);
-        usleep(1000000);
+        usleep(100000);
         responsiveTap(38, 29);
         usleep(1000000);
     end
@@ -740,7 +839,7 @@ while total >= -1 do
     if (responsiveGetColor(283, 142) == 13605221 and responsiveGetColor(282, 159) == 8736827 and 
         responsiveGetColor(528, 148) == 9523242 and responsiveGetColor(136, 237) == 765169) then
         toast('退出洞府', 1);
-        usleep(1000000);
+        usleep(100000);
         responsiveTap(30, 36);
         usleep(1000000);
     end
@@ -751,7 +850,7 @@ while total >= -1 do
     if (responsiveGetColor(120, 21) == 16315888 and responsiveGetColor(153, 33) == 16184558 and 
             responsiveGetColor(172, 18) == 10006456) then
         toast('进入分享界面', 1);
-        usleep(1000000);
+        usleep(100000);
         responsiveTap(624, 159);
         usleep(1000000);
     end
@@ -766,7 +865,7 @@ while total >= -1 do
         if (responsiveGetColor(418, 575) == 13132901 and responsiveGetColor(444, 572) == 14336182 and 
             responsiveGetColor(455, 575) == 14001566 and responsiveGetColor(475, 571) == 13132131) then
             toast('开始分享', 1);
-            usleep(1000000);
+            usleep(100000);
             responsiveTap(375, 816);
             usleep(100000);
             responsiveTap(338, 475);
@@ -781,24 +880,24 @@ while total >= -1 do
             usleep(1000000);
         else
             toast('分享时间未到', 1);
-            usleep(1000000);
+            usleep(100000);
             responsiveTap(423, 386);
             usleep(1000000);
         end
    end
 
     usleep(1000000);
-    -- 每隔16min
+    -- 每隔15min
     if (tonumber(update_gf9.value) == 1) then
 		appKill("com.tencent.mqq");
 		usleep(1000000);
 		log("lock");
         lockScreen();
-        sleep(600);
+        sleep(900);
 		log("unlock");
         unlockScreen();
         usleep(500000);
     else
-        usleep(900000000);
+        sleep(900);
     end
 end
