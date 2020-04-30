@@ -389,9 +389,12 @@ while total >= -1 do
             responsiveGetColor(374, 1067) == 14453035 and responsiveGetColor(577, 984) == 9128487) then
             toast('开始设置神游', 1);
             usleep(100000);
-            responsiveTap(558, 979);
-            usleep(100000);
-            responsiveTap(558, 979);
+            local rep = 0;
+            while (rep < 50) do
+                responsiveTap(500, 984);
+                usleep(100000);
+                rep = rep + 1
+            end
             usleep(1000000);
             responsiveTap(382, 1046);
             usleep(1000000);
