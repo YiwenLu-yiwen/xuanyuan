@@ -660,6 +660,9 @@ while total >= -1 do
 				toast('检测到丹道加成, 开始升级');
 				usleep(100000);
 				responsiveTap(500, 902);
+				usleep(500000);
+				responsiveTap(490, 804);
+				usleep(1000000);
 			else
 				toast('丹道升级中');
 				usleep(100000);
