@@ -3,20 +3,20 @@ local platf ={type=CONTROLLER_TYPE.PICKER, title="平台选择(QQ需提前进入
 local platf1 = {type=CONTROLLER_TYPE.PICKER, title="洞府升级", key="wood", value="粮食，木头", options={"粮食，木头，铁", "粮食，木头"}}
 local label_book = {type=CONTROLLER_TYPE.LABEL, text="悟道书设置"}
 local label_book1 = {type=CONTROLLER_TYPE.LABEL, text="第一本悟道书设置"}
-local book_row1 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几行", key="row", value="3"}
-local book_col1 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几列", key="column", value="3"}
-local first_times1 = {type=CONTROLLER_TYPE.INPUT, title="悟道几次", key="column", value="3"}
+local book_row1 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几行", key="row", value="4"}
+local book_col1 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几列", key="column", value="2"}
+local first_times1 = {type=CONTROLLER_TYPE.INPUT, title="悟道几次", key="column", value="10"}
 local label_book2 = {type=CONTROLLER_TYPE.LABEL, text="第二本悟道书设置"}
 local book_row2 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几行", key="row", value="4"}
-local book_col2 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几列", key="column", value="2"}
-local first_times2 = {type=CONTROLLER_TYPE.INPUT, title="悟道几次", key="column", value="4"}
+local book_col2 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几列", key="column", value="3"}
+local first_times2 = {type=CONTROLLER_TYPE.INPUT, title="悟道几次", key="column", value="10"}
 local label_book3 = {type=CONTROLLER_TYPE.LABEL, text="第三本悟道书设置"}
-local book_row3 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几行", key="row", value="4"}
+local book_row3 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几行", key="row", value="5"}
 local book_col3 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几列", key="column", value="1"}
-local first_times3 = {type=CONTROLLER_TYPE.INPUT, title="悟道几次", key="column", value="4"}
+local first_times3 = {type=CONTROLLER_TYPE.INPUT, title="悟道几次", key="column", value="10"}
 local label_book4 = {type=CONTROLLER_TYPE.LABEL, text="第四本悟道书设置（无限阅读）"}
-local book_row4 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几行", key="row", value="4"}
-local book_col4 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几列", key="column", value="1"}
+local book_row4 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几行", key="row", value="5"}
+local book_col4 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几列", key="column", value="2"}
 local label_gf = {type=CONTROLLER_TYPE.LABEL, text="功法设置"}
 local update_gf8 = {type=CONTROLLER_TYPE.SWITCH, title="自动悟道", key="悟道", value=1}
 local update_gf9 = {type=CONTROLLER_TYPE.SWITCH, title="自动熄屏", key="息屏", value=1}
@@ -25,7 +25,7 @@ local update_gf2 = {type=CONTROLLER_TYPE.SWITCH, title="升级真绝", key="真�
 local update_gf3 = {type=CONTROLLER_TYPE.SWITCH, title="升级门派", key="门派", value=0}
 local update_gf4 = {type=CONTROLLER_TYPE.SWITCH, title="升级秘籍", key="秘籍", value=0}
 local update_gf5 = {type=CONTROLLER_TYPE.SWITCH, title="升级心经", key="心经", value=0}
-local update_gf6 = {type=CONTROLLER_TYPE.SWITCH, title="升级遁术", key="遁术", value=1}
+local update_gf6 = {type=CONTROLLER_TYPE.SWITCH, title="升级遁术", key="遁术", value=0}
 local update_gf7 = {type=CONTROLLER_TYPE.SWITCH, title="升级残页", key="残页", value=0}
 local update_gf10 = {type=CONTROLLER_TYPE.SWITCH, title="灵根已经100级(升级功法时间小于45分钟)", key="灵根100", value=1}
 local update_iron = {type=CONTROLLER_TYPE.SWITCH, title="自动器道（有门派加成才会自动学）", key="器道", value=1}
@@ -149,21 +149,21 @@ while total >= -1 do
     if (platf.value == 'QQ') then
 		appActivate("com.tencent.mqq"); --强制切换程序
 		--QQ登陆界面
-		usleep(3000000);
+		usleep(10000000);
 		if (responsiveGetColor(327, 235) == 0 and responsiveGetColor(468, 243) == 0) then
 			toast('检测登录界面，开始登陆', 1);
 			responsiveTap(381, 781);
-			usleep(2000000);
+			usleep(3000000);
 		end		
 		--QQ重新登录
-        usleep(100000);
+        usleep(1000000);
 		if (responsiveGetColor(319, 487) == 0 and responsiveGetColor(366, 486) == 2236962 and 
         	responsiveGetColor(397,486) == 0 and responsiveGetColor(438, 498) == 0) then
 			toast('QQ被挤掉线，重新登录', 1);
 			responsiveTap(539,854)
-			usleep(2000000);
+			usleep(3000000);
 		end
-		usleep(100000);
+		usleep(3000000);
 		openURL("https://h5.qzone.qq.com/app/open/1108228472/home?app_display=2&_happ=1&_proxy=1&_wv=145191&pf=wanba_ts.9&via=H5.SHARE.QQAIO");
 		usleep(3000000);
 		-- 点击浏览器open 跳转
@@ -173,8 +173,15 @@ while total >= -1 do
 		end
     end
 
-    usleep(40000000);
-
+    usleep(10000000);
+	
+	while (responsiveGetColor(319, 487) == 16119546 and responsiveGetColor(366, 486) == 16119546 and 
+        	responsiveGetColor(397,486) == 16119546 and responsiveGetColor(438, 498) == 16119546) do
+			toast('正在等待界面', 1);
+			usleep(3000000);
+	end
+	
+	usleep(10000000);
     --login
     check_login();
 	
@@ -520,6 +527,9 @@ while total >= -1 do
 	
     --功法
 	local gf_times = 2;
+	if (tonumber(update_gf10.value) == 1) then
+		gf_times = 2
+	end
 	
 	usleep(100000);
     if (total%gf_times == 0) then
@@ -906,17 +916,17 @@ while total >= -1 do
    end
 
     usleep(1000000);
-    -- 每隔15min
+    -- 每隔24min
     if (tonumber(update_gf9.value) == 1) then
 		appKill("com.tencent.mqq");
 		usleep(1000000);
 		log("locklocklock");
         lockScreen();
-        sleep(1200);
+        sleep(1440);
 		log("unlock");
         unlockScreen();
         usleep(500000);
     else
-        sleep(1200);
+        sleep(1440);
     end
 end
