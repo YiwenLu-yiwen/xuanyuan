@@ -3,20 +3,20 @@ local platf ={type=CONTROLLER_TYPE.PICKER, title="平台选择(QQ需提前进入
 local platf1 = {type=CONTROLLER_TYPE.PICKER, title="洞府升级", key="wood", value="粮食，木头", options={"粮食，木头，铁", "粮食，木头"}}
 local label_book = {type=CONTROLLER_TYPE.LABEL, text="悟道书设置"}
 local label_book1 = {type=CONTROLLER_TYPE.LABEL, text="第一本悟道书设置"}
-local book_row1 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几行", key="row", value="6"}
+local book_row1 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几行", key="row", value="7"}
 local book_col1 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几列", key="column", value="1"}
-local first_times1 = {type=CONTROLLER_TYPE.INPUT, title="悟道几次", key="column", value="1"}
+local first_times1 = {type=CONTROLLER_TYPE.INPUT, title="悟道几次", key="column", value="9"}
 local label_book2 = {type=CONTROLLER_TYPE.LABEL, text="第二本悟道书设置"}
-local book_row2 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几行", key="row", value="6"}
+local book_row2 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几行", key="row", value="7"}
 local book_col2 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几列", key="column", value="2"}
-local first_times2 = {type=CONTROLLER_TYPE.INPUT, title="悟道几次", key="column", value="9"}
+local first_times2 = {type=CONTROLLER_TYPE.INPUT, title="悟道几次", key="column", value="10"}
 local label_book3 = {type=CONTROLLER_TYPE.LABEL, text="第三本悟道书设置"}
-local book_row3 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几行", key="row", value="6"}
-local book_col3 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几列", key="column", value="3"}
+local book_row3 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几行", key="row", value="9"}
+local book_col3 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几列", key="column", value="2"}
 local first_times3 = {type=CONTROLLER_TYPE.INPUT, title="悟道几次", key="column", value="10"}
 local label_book4 = {type=CONTROLLER_TYPE.LABEL, text="第四本悟道书设置（无限阅读）"}
-local book_row4 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几行", key="row", value="7"}
-local book_col4 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几列", key="column", value="1"}
+local book_row4 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几行", key="row", value="9"}
+local book_col4 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几列", key="column", value="3"}
 local label_gf = {type=CONTROLLER_TYPE.LABEL, text="功法设置"}
 local update_gf8 = {type=CONTROLLER_TYPE.SWITCH, title="自动悟道", key="悟道", value=1}
 local update_gf9 = {type=CONTROLLER_TYPE.SWITCH, title="自动熄屏", key="息屏", value=1}
@@ -113,8 +113,8 @@ function lockScreen()
     keyUp(KEY_TYPE.POWER_BUTTON);
 end
 function check_notice()
-    if (responsiveGetColor(655, 227) == 13127218 and responsiveGetColor(432, 240) == 16644084 and 
-        responsiveGetColor(375,350) == 2894892 and responsiveGetColor(380, 457) == 12367017) then
+    if (responsiveGetColor(655, 227) == 13260075 and responsiveGetColor(432, 240) == 16644084 and 
+        responsiveGetColor(375,350) == 2894892 and responsiveGetColor(380, 457) == 12235948) then
         toast('关闭公告', 1);
         usleep(1000000);
         responsiveTap(655, 229);
@@ -122,7 +122,7 @@ function check_notice()
     end
 end
 function check_login()
-	if (responsiveGetColor(424, 1010) == 15380039 and responsiveGetColor(617,303) == 13455162 and 
+	if (responsiveGetColor(424, 1010) == 15313229 and responsiveGetColor(617,303) == 13456441 and 
             responsiveGetColor(575,288)==15065814) then
         toast('检测到登陆界面公告',1);
         usleep(1000000);
@@ -201,8 +201,8 @@ while total >= -1 do
 	check_login();
     usleep(1000000);
 
-    while (responsiveGetColor(257, 1142) == 16042833 and responsiveGetColor(499, 1145) == 16373863 and 
-            responsiveGetColor(371,1146) == 6758400) do
+    while (responsiveGetColor(257, 1142) == 15977041 and responsiveGetColor(499, 1145) == 16505449 and 
+	    responsiveGetColor(371,1146) == 6758400) do
         toast('正在进入游戏', 1);
         usleep(1000000);
         responsiveTap(373, 1132); --tap twice
@@ -214,13 +214,7 @@ while total >= -1 do
     usleep(1000000);
 
     --检测公告
-    while (responsiveGetColor(655, 227) == 13127218 and responsiveGetColor(432, 240) == 16644084 and 
-            responsiveGetColor(375,350) == 2894892 and responsiveGetColor(380, 457) == 12367017) do
-        toast('关闭公告', 1);
-        usleep(1000000);
-        responsiveTap(655, 229);
-        usleep(5000000);
-    end
+    check_notice();
 	
     usleep(1000000);
 	
@@ -872,8 +866,8 @@ while total >= -1 do
     usleep(1000000);
     
     --分享有礼
-    if (responsiveGetColor(120, 21) == 16315888 and responsiveGetColor(153, 33) == 16184558 and 
-            responsiveGetColor(172, 18) == 10006456) then
+    if (responsiveGetColor(120, 21) == 16315888 and responsiveGetColor(153, 33) == 16250095 and 
+            responsiveGetColor(172, 18) == 9940663) then
         toast('进入分享界面', 1);
         usleep(100000);
         responsiveTap(624, 159);
@@ -883,8 +877,8 @@ while total >= -1 do
     usleep(3000000);
 
     --检测分享有礼
-    if (responsiveGetColor(248, 470) == 15778415 and responsiveGetColor(313, 482) == 11228993 and 
-      responsiveGetColor(378, 469) == 12421241 and responsiveGetColor(636, 461) == 15586433) then
+    if (responsiveGetColor(248, 470) == 15647086 and responsiveGetColor(313, 482) == 11295043 and 
+      responsiveGetColor(378, 469) == 12486777 and responsiveGetColor(636, 461) == 15586948) then
         toast('检测分享界面', 1);
         usleep(1000000);
         if (responsiveGetColor(418, 575) == 13132901 and responsiveGetColor(444, 572) == 14336182 and 
