@@ -1,22 +1,22 @@
 local label = {type=CONTROLLER_TYPE.LABEL, text="玄元剑仙-zz脚本"}
 local platf ={type=CONTROLLER_TYPE.PICKER, title="平台选择(QQ需提前进入游戏)", key="platf", value="QQ", options={"QQ", "其他"}}
-local platf1 = {type=CONTROLLER_TYPE.PICKER, title="洞府升级", key="wood", value="粮食，木头", options={"粮食，木头，铁", "粮食，木头"}}
+local platf1 = {type=CONTROLLER_TYPE.PICKER, title="洞府升级", key="wood", value="粮食，木头，铁", options={"粮食，木头，铁", "粮食，木头"}}
 local label_book = {type=CONTROLLER_TYPE.LABEL, text="悟道书设置"}
 local label_book1 = {type=CONTROLLER_TYPE.LABEL, text="第一本悟道书设置"}
 local book_row1 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几行", key="row", value="10"}
 local book_col1 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几列", key="column", value="1"}
-local first_times1 = {type=CONTROLLER_TYPE.INPUT, title="悟道几次", key="column", value="4"}
+local first_times1 = {type=CONTROLLER_TYPE.INPUT, title="悟道几次", key="column", value="10"}
 local label_book2 = {type=CONTROLLER_TYPE.LABEL, text="第二本悟道书设置"}
-local book_row2 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几行", key="row", value="9"}
-local book_col2 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几列", key="column", value="3"}
-local first_times2 = {type=CONTROLLER_TYPE.INPUT, title="悟道几次", key="column", value="4"}
+local book_row2 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几行", key="row", value="10"}
+local book_col2 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几列", key="column", value="2"}
+local first_times2 = {type=CONTROLLER_TYPE.INPUT, title="悟道几次", key="column", value="10"}
 local label_book3 = {type=CONTROLLER_TYPE.LABEL, text="第三本悟道书设置"}
-local book_row3 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几行", key="row", value="9"}
-local book_col3 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几列", key="column", value="2"}
-local first_times3 = {type=CONTROLLER_TYPE.INPUT, title="悟道几次", key="column", value="4"}
+local book_row3 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几行", key="row", value="10"}
+local book_col3 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几列", key="column", value="1"}
+local first_times3 = {type=CONTROLLER_TYPE.INPUT, title="悟道几次", key="column", value="10"}
 local label_book4 = {type=CONTROLLER_TYPE.LABEL, text="第四本悟道书设置（无限阅读）"}
-local book_row4 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几行", key="row", value="5"}
-local book_col4 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几列", key="column", value="1"}
+local book_row4 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几行", key="row", value="10"}
+local book_col4 = {type=CONTROLLER_TYPE.INPUT, title="悟道书第几列", key="column", value="2"}
 local label_gf = {type=CONTROLLER_TYPE.LABEL, text="功法设置"}
 local update_gf8 = {type=CONTROLLER_TYPE.SWITCH, title="自动悟道", key="悟道", value=1}
 local update_gf9 = {type=CONTROLLER_TYPE.SWITCH, title="自动熄屏", key="息屏", value=1}
@@ -144,13 +144,13 @@ keepAutoTouchAwake(true);
 
 -- 所有条件汇总
 -- 地上
-base_condition = responsiveGetColor(120, 21) == 16315888 and responsiveGetColor(153, 33) == 16250095 and responsiveGetColor(172, 18) == 10072249
+base_codition = responsiveGetColor(120, 21) == 16315887 and responsiveGetColor(153, 33) == 16250095 and responsiveGetColor(172, 18) == 10006200
 -- 历练
 lilian = responsiveGetColor(360,1035) == 14402463 and responsiveGetColor(517,1030) == 15324846 and responsiveGetColor(630,1015) == 15522482
 -- 圣兽
 shengshou = responsiveGetColor(245,254) == 5983502 and responsiveGetColor(642, 194) == 13588026
 -- 神游界面
-shengshou = responsiveGetColor(245,254) == 10130310 and responsiveGetColor(642, 194) == 12995375
+shenyou = responsiveGetColor(635, 200) == 13719869 and responsiveGetColor(407, 196) == 6248786
 -- 神游次数
 shenyou_times = responsiveGetColor(184, 985) == 9128487 and responsiveGetColor(498, 984) == 9128487 and responsiveGetColor(374, 1067) == 14453035 
 -- 灵根
@@ -180,11 +180,11 @@ daoshu = responsiveGetColor(98, 29) == 16711675 and responsiveGetColor(138, 26) 
 -- 背包
 bag = responsiveGetColor(691, 539) == 9128487 and responsiveGetColor(629, 1301) == 14452778 and responsiveGetColor(138, 1286) == 12025402
 -- 分享
-fenxiang = responsiveGetColor(248, 470) == 15778159 and responsiveGetColor(313, 482) == 11228480 and responsiveGetColor(378, 469) == 12420984
+fenxiang = responsiveGetColor(248, 470) == 15581552 and responsiveGetColor(313, 482) == 11294529 and responsiveGetColor(378, 469) == 12422012
 -- 分享判断
 fenxiang_condition = responsiveGetColor(418, 575) == 13132901 and responsiveGetColor(444, 572) == 14336182 and responsiveGetColor(455, 575) == 14001566
 -- 飞升
-fly_condition = responsiveGetColor(120, 21) == 16381424 and responsiveGetColor(153, 33) == 16381423 and responsiveGetColor(172, 18) == 13617858
+fly_condition = responsiveGetColor(120, 21) == 16381423 and responsiveGetColor(153, 33) == 16381423 and responsiveGetColor(172, 18) == 13486273
 -- 宗门
 zongmen = responsiveGetColor(106, 1035) == 5992067 and responsiveGetColor(343, 1045) == 12755071 and responsiveGetColor(576, 1033) == 7438222
 -- 传道院
@@ -251,9 +251,9 @@ while total >= -1 do
 	end
 	usleep(2000000);
 	check_login();
-    usleep(2000000);
+    usleep(5000000);
 
-    while (responsiveGetColor(257, 1142) == 15845455 and responsiveGetColor(499, 1145) == 16440174 and 
+    while (responsiveGetColor(257, 1142) == 15977041 and responsiveGetColor(499, 1145) == 16505449 and 
 	    responsiveGetColor(371,1146) == 6758400) do
         toast('正在进入游戏', 1);
         usleep(1000000);
@@ -272,7 +272,7 @@ while total >= -1 do
 	
 	--检测检飞升主界面
 	--fly_condition
-    if (responsiveGetColor(120, 21) == 16381424 and responsiveGetColor(153, 33) == 16381423 and responsiveGetColor(172, 18) == 13617858) then
+    if (responsiveGetColor(120, 21) == 16381423 and responsiveGetColor(153, 33) == 16381423 and responsiveGetColor(172, 18) == 13486273) then
         toast('找到飞升主界面', 1);
         usleep(1000000);
 		responsiveTap(655, 229);
@@ -282,7 +282,7 @@ while total >= -1 do
 	usleep(1000000);
 	
 	--fly_condition
-	if (responsiveGetColor(120, 21) == 16381424 and responsiveGetColor(153, 33) == 16381423 and responsiveGetColor(172, 18) == 13617858) then
+	if (responsiveGetColor(120, 21) == 16381423 and responsiveGetColor(153, 33) == 16381423 and responsiveGetColor(172, 18) == 13486273) then
 		toast('进入宗门', 1);
 		responsiveTap(98,1029);
 		usleep(1000000);
@@ -374,7 +374,7 @@ while total >= -1 do
 	
 	usleep(1000000);
 	--fly_condition
-	while (responsiveGetColor(120, 21) == 16381424 and responsiveGetColor(153, 33) == 16381423 and responsiveGetColor(172, 18) == 13617858) do
+	while (responsiveGetColor(120, 21) == 16381423 and responsiveGetColor(153, 33) == 16381423 and responsiveGetColor(172, 18) == 13486273) do
 		toast('去地界', 1);
         responsiveTap(33, 209);
         usleep(1000000);
@@ -385,7 +385,7 @@ while total >= -1 do
 	
 	--检测地上主界面
 	--base_condition
-    if (responsiveGetColor(120, 21) == 16315888 and responsiveGetColor(153, 33) == 16250095 and responsiveGetColor(172, 18) == 10072249) then
+    if (responsiveGetColor(120, 21) == 16315887 and responsiveGetColor(153, 33) == 16250095 and responsiveGetColor(172, 18) == 10006200) then
         toast('找到地上主界面', 1);
         usleep(1000000);
     end
@@ -394,7 +394,7 @@ while total >= -1 do
 
      --检测洞府
 	--base_condition
-    if (responsiveGetColor(120, 21) == 16315888 and responsiveGetColor(153, 33) == 16250095 and responsiveGetColor(172, 18) == 10072249) then
+    if (responsiveGetColor(120, 21) == 16315887 and responsiveGetColor(153, 33) == 16250095 and responsiveGetColor(172, 18) == 10006200) then
         toast('进入洞府', 1);
         usleep(100000);
         responsiveTap(516, 1029);
@@ -662,180 +662,6 @@ while total >= -1 do
 
     usleep(1000000);
 	
-	--历练检测
-	--base_condition
-    if (responsiveGetColor(120, 21) == 16315888 and responsiveGetColor(153, 33) == 16250095 and responsiveGetColor(172, 18) == 10072249) then
-        toast('进入历练', 1);
-        usleep(1000000);
-        responsiveTap(660, 1033);
-        usleep(1000000);
-    end
-
-    usleep(8000000);
-	
-	--检测圣兽
-	--lilian
-	if (responsiveGetColor(360,1035) == 14402463 and responsiveGetColor(517,1030) == 15324846 and responsiveGetColor(630,1015) == 15522482) then
-		toast("检测圣兽",1);
-		usleep(100000);
-		responsiveTap(646, 1027);
-        usleep(6000000);
-		while (responsiveGetColor(245,254) == 5983502 and responsiveGetColor(642, 194) == 13588026) do
-			toast("检测到圣兽界面",1);
-			usleep(100000);
-			responsiveTap(373, 1119);
-			usleep(100000);
-			responsiveTap(373, 1119);
-			usleep(1000000);
-			toast("关闭圣兽界面",1);
-			responsiveTap(642, 194);
-			usleep(1000000);
-		end
-    end
-
-	usleep(1000000);
-			
-    --检测历练界面
-	--lilian
-    if (responsiveGetColor(360,1035) == 14402463 and responsiveGetColor(517,1030) == 15324846 and responsiveGetColor(630,1015) == 15522482) then
-        toast('已在历练界面', 1);
-        usleep(1000000);
-    end
-    usleep(1000000);
-	
-    --神游设置
-	--lilian
-    if (responsiveGetColor(360,1035) == 14402463 and responsiveGetColor(517,1030) == 15324846 and responsiveGetColor(630,1015) == 15522482) then
-        toast('检测神游', 1);
-		usleep(100000);
-        responsiveTap(248, 1034);
-        usleep(2000000);
-    end 
-
-    usleep(3000000);
-	
-	--shenyou
-    if (responsiveGetColor(444, 258) == 2625553 and responsiveGetColor(515, 258) == 12329773) then
-        toast('已经在神游界面', 1);
-        usleep(3000000);
-		--shenyou_times
-        if (responsiveGetColor(184, 985) == 9128487 and responsiveGetColor(498, 984) == 9128487 and responsiveGetColor(374, 1067) == 14453035 ) then
-            toast('开始设置神游', 1);
-            usleep(100000);
-            local rep = 1;
-            while (rep < 50) do
-                responsiveTap(500, 984);
-                usleep(100000);
-                rep = rep + 1
-            end
-            usleep(1000000);
-            responsiveTap(382, 1046);
-            usleep(1000000);
-            responsiveTap(636, 199)
-            usleep(1000000);
-        else
-            toast('未完成神游', 1);
-            usleep(1000000);
-            responsiveTap(636, 199)
-            usleep(1000000);
-        end
-    end
-	
-    usleep(3000000);
-
-	-- shenyou
-    if (responsiveGetColor(444, 258) == 2625553 and responsiveGetColor(515, 258) == 12329773) then
-        toast('退出神游界面', 1);
-        usleep(1000000);
-        responsiveTap(57, 33);
-        usleep(1000000);
-    end
-	
-    usleep(1000000);
-
-	--lilian
-    while (responsiveGetColor(360,1035) == 14402463 and responsiveGetColor(517,1030) == 15324846 and responsiveGetColor(630,1015) == 15522482) do
-        toast('退出历练界面', 1);
-        usleep(1000000);
-        responsiveTap(37, 32);
-        usleep(2000000);
-    end
-	
-    usleep(2000000);
-
-    check_notice();
-
-    usleep(2000000);
-
-    --灵根检测
-	-- base_condition
-    if (responsiveGetColor(120, 21) == 16315888 and responsiveGetColor(153, 33) == 16250095 and responsiveGetColor(172, 18) == 10072249) then
-        toast('进入灵根', 1);
-        usleep(1000000);
-        responsiveTap(95, 1030);
-        usleep(100000);
-        responsiveTap(95, 1030);
-        usleep(1000000);
-    end
-	
-    usleep(8000000);
-
-    --灵根界面检测
-	--linggen
-    if (responsiveGetColor(199, 42) == 1979717 and responsiveGetColor(115, 40) == 1715515 and responsiveGetColor(84, 27) == 1715515) then
-        toast('已在灵根界面，升级灵根', 1);
-        usleep(100000);
-        responsiveTap(375, 278);
-        usleep(100000);
-        responsiveTap(375, 278);
-        usleep(100000);
-        responsiveTap(375, 278);
-        usleep(100000);
-        responsiveTap(152, 445);
-        usleep(100000);
-        responsiveTap(152, 445);
-        usleep(100000);
-        responsiveTap(152, 445);
-        usleep(100000);
-        responsiveTap(235, 701);
-        usleep(100000);
-        responsiveTap(235, 701);
-        usleep(100000);
-        responsiveTap(235, 701);
-        usleep(100000);
-        responsiveTap(532, 698);
-        usleep(100000);
-        responsiveTap(532, 698);
-        usleep(100000);
-        responsiveTap(532, 698);
-        usleep(100000);
-        responsiveTap(610, 438);
-        usleep(100000);
-        responsiveTap(610, 438);
-        usleep(100000);
-        responsiveTap(610, 438);
-        usleep(100000);
-
-        responsiveTap(620, 996);
-        usleep(500000);
-
-        responsiveTap(516, 806);
-        usleep(1000000);
-    end
-
-    usleep(1000000);
-	
-    --退出界面
-	--linggen
-    while (responsiveGetColor(199, 42) == 1979717 and responsiveGetColor(115, 40) == 1715515 and responsiveGetColor(84, 27) == 1715515) do
-        toast('退出灵根界面', 1);
-        usleep(100000);
-        responsiveTap(29, 39);
-        usleep(1000000);
-    end
-
-    usleep(1000000);
-	
     --功法
 	local gf_times = 2;
 	if (tonumber(update_gf10.value) == 1) then
@@ -844,7 +670,7 @@ while total >= -1 do
 	
 	usleep(100000);
     if (total%gf_times == 0) then
-        if (responsiveGetColor(120, 21) == 16315888 and responsiveGetColor(153, 33) == 16250094 and responsiveGetColor(172, 18) == 9809335) then --base_codition
+        if (responsiveGetColor(120, 21) == 16315887 and responsiveGetColor(153, 33) == 16250095 and responsiveGetColor(172, 18) == 10006200) then --base_condition
             toast('进入功法', 1);
             usleep(100000);
             responsiveTap(238, 1029);
@@ -913,10 +739,180 @@ while total >= -1 do
     end
     
    	usleep(1000000);
-    
+
+    --历练检测
+	--base_condition
+    if (responsiveGetColor(120, 21) == 16315887 and responsiveGetColor(153, 33) == 16250095 and responsiveGetColor(172, 18) == 10006200) then
+        toast('进入历练', 1);
+        usleep(1000000);
+        responsiveTap(660, 1033);
+        usleep(1000000);
+    end
+
+    usleep(8000000);
+	
+	--检测圣兽
+	--lilian
+	if (responsiveGetColor(360,1035) == 14402463 and responsiveGetColor(517,1030) == 15324846 and responsiveGetColor(630,1015) == 15522482) then
+		toast("检测圣兽",1);
+		usleep(100000);
+		responsiveTap(646, 1027);
+        usleep(6000000);
+		while (responsiveGetColor(245,254) == 5983502 and responsiveGetColor(642, 194) == 13588026) do
+			toast("检测到圣兽界面",1);
+			usleep(100000);
+			responsiveTap(373, 1119);
+			usleep(100000);
+			responsiveTap(373, 1119);
+			usleep(1000000);
+			toast("关闭圣兽界面",1);
+			responsiveTap(642, 194);
+			usleep(1000000);
+		end
+    end
+
+	usleep(1000000);
+			
+    --检测历练界面
+	--lilian
+    if (responsiveGetColor(360,1035) == 14402463 and responsiveGetColor(517,1030) == 15324846 and responsiveGetColor(630,1015) == 15522482) then
+        toast('已在历练界面', 1);
+        usleep(1000000);
+    end
+    usleep(1000000);
+	
+    --神游设置
+	--lilian
+    if (responsiveGetColor(360,1035) == 14402463 and responsiveGetColor(517,1030) == 15324846 and responsiveGetColor(630,1015) == 15522482) then
+        toast('检测神游', 1);
+		usleep(100000);
+        responsiveTap(248, 1034);
+        usleep(2000000);
+    end 
+
+    usleep(3000000);
+	
+	--shenyou
+    if (responsiveGetColor(635, 200) == 13719869 and responsiveGetColor(407, 196) == 6248786) then
+        toast('已经在神游界面', 1);
+        usleep(3000000);
+		--shenyou_times
+        if (responsiveGetColor(184, 985) == 9128487 and responsiveGetColor(498, 984) == 9128487 and responsiveGetColor(374, 1067) == 14453035 ) then
+            toast('开始设置神游', 1);
+            usleep(100000);
+            local rep = 1;
+            while (rep < 50) do
+                responsiveTap(500, 984);
+                usleep(100000);
+                rep = rep + 1
+            end
+            usleep(1000000);
+            responsiveTap(382, 1046);
+            usleep(1000000);
+            responsiveTap(636, 199);
+            usleep(1000000);
+        else
+            toast('未完成神游', 1);
+            usleep(1000000);
+            responsiveTap(636, 199);
+            usleep(1000000);
+        end
+    end
+	
+    usleep(3000000);
+
+	-- shenyou
+    if (responsiveGetColor(635, 200) == 13719869 and responsiveGetColor(407, 196) == 6248786) then
+        toast('退出神游界面', 1);
+        usleep(1000000);
+        responsiveTap(57, 33);
+        usleep(1000000);
+    end
+	
+    usleep(1000000);
+
+	--lilian
+    while (responsiveGetColor(360,1035) == 14402463 and responsiveGetColor(517,1030) == 15324846 and responsiveGetColor(630,1015) == 15522482) do
+        toast('退出历练界面', 1);
+        usleep(1000000);
+        responsiveTap(37, 32);
+        usleep(2000000);
+    end
+	
+    usleep(2000000);
+
+    --灵根检测
+	-- base_condition
+    if (responsiveGetColor(120, 21) == 16315887 and responsiveGetColor(153, 33) == 16250095 and responsiveGetColor(172, 18) == 10006200) then
+        toast('进入灵根', 1);
+        usleep(1000000);
+        responsiveTap(95, 1030);
+        usleep(100000);
+        responsiveTap(95, 1030);
+        usleep(1000000);
+    end
+	
+    usleep(8000000);
+
+    --灵根界面检测
+	--linggen
+    if (responsiveGetColor(199, 42) == 1979717 and responsiveGetColor(115, 40) == 1715515 and responsiveGetColor(84, 27) == 1715515) then
+        toast('已在灵根界面，升级灵根', 1);
+        usleep(100000);
+        responsiveTap(375, 278);
+        usleep(100000);
+        responsiveTap(375, 278);
+        usleep(100000);
+        responsiveTap(375, 278);
+        usleep(100000);
+        responsiveTap(152, 445);
+        usleep(100000);
+        responsiveTap(152, 445);
+        usleep(100000);
+        responsiveTap(152, 445);
+        usleep(100000);
+        responsiveTap(235, 701);
+        usleep(100000);
+        responsiveTap(235, 701);
+        usleep(100000);
+        responsiveTap(235, 701);
+        usleep(100000);
+        responsiveTap(532, 698);
+        usleep(100000);
+        responsiveTap(532, 698);
+        usleep(100000);
+        responsiveTap(532, 698);
+        usleep(100000);
+        responsiveTap(610, 438);
+        usleep(100000);
+        responsiveTap(610, 438);
+        usleep(100000);
+        responsiveTap(610, 438);
+        usleep(100000);
+
+        responsiveTap(620, 996);
+        usleep(500000);
+
+        responsiveTap(516, 806);
+        usleep(1000000);
+    end
+
+    usleep(1000000);
+	
+    --退出界面
+	--linggen
+    while (responsiveGetColor(199, 42) == 1979717 and responsiveGetColor(115, 40) == 1715515 and responsiveGetColor(84, 27) == 1715515) do
+        toast('退出灵根界面', 1);
+        usleep(100000);
+        responsiveTap(29, 39);
+        usleep(1000000);
+    end
+
+    usleep(1000000);
+
     --分享有礼
-	--base_codition
-    if (responsiveGetColor(120, 21) == 16315888 and responsiveGetColor(153, 33) == 16250094 and responsiveGetColor(172, 18) == 9809335) then
+	--base_condition
+    if (responsiveGetColor(120, 21) == 16315887 and responsiveGetColor(153, 33) == 16250095 and responsiveGetColor(172, 18) == 10006200) then
         toast('进入分享界面', 1);
         usleep(100000);
         responsiveTap(624, 159);
@@ -927,7 +923,7 @@ while total >= -1 do
 
     --检测分享有礼
 	--fenxiang
-    if (responsiveGetColor(248, 470) == 15778159 and responsiveGetColor(313, 482) == 11228480 and responsiveGetColor(378, 469) == 12420984) then
+    if (responsiveGetColor(248, 470) == 15581552 and responsiveGetColor(313, 482) == 11294529 and responsiveGetColor(378, 469) == 12422012) then
         toast('检测分享界面', 1);
         usleep(1000000);
 		--fenxiang_condition
@@ -953,8 +949,7 @@ while total >= -1 do
             usleep(1000000);
         end
    end
-
-    usleep(1000000);
+   
     -- 每隔24min
     if (tonumber(update_gf9.value) == 1) then
 		appKill("com.tencent.mqq");
